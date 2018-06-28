@@ -94,9 +94,12 @@ sp_configure 'contained database authentication', 1; GO RECONFIGURE; GO
 
 1. Edit and run c:\xp\xconnect-xp1-Collection.ps1.
 2. Edit and run c:\xp\xconnect-xp1-CollectionSearch.ps1.
-3. Edit and run c:\xp\xconnect-xp1-MarketingAutomation.ps1
-4. Edit and run c:\xp\xconnect-xp1-MarketingAutomationReporting.ps1
-5. Edit and run c:\xp\xconnect-xp1-ReferenceData.ps1
+
+### xDB Services Instance Installation
+
+1. Edit and run c:\xp\xconnect-xp1-MarketingAutomation.ps1
+2. Edit and run c:\xp\xconnect-xp1-MarketingAutomationReporting.ps1
+3. Edit and run c:\xp\xconnect-xp1-ReferenceData.ps1
 
 ### Content Management Instance Installation
 
