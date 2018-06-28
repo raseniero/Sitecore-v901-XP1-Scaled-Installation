@@ -88,11 +88,13 @@ The general approach is to start with setting up *Solr* instance then followed b
 
 1. Install Chocolatey
 2. Install NSSM using Chocolatey
-2. Install JRE 1.8 using Chocolatey
-3. Install OpenSSL using Chocolatey
-4. Install Solr 6.2.2
-5. Install SSL
-6. Setup as a Service using NSSM
+3. Install JRE 1.8 using Chocolatey
+4. Install OpenSSL using Chocolatey
+5. Install Solr 6.2.2
+6. Install SSL
+7. Setup as a Service using NSSM
+8. Edit and run c:\xp\sitecore-SolrCores.ps1
+9. Edit and run c:\xp\xconnect-SolrCores.ps1 
 
 ### General Installation
 1. Install Windows Server 2016
