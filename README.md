@@ -19,8 +19,8 @@ We will be referencing *the diagram* below in our instructions to come.
 Depending on the role or instance, each has it's own respective software prerequisites, but the *general prerequisites* are the following below.
 
 * Windows Server 2016
-* SQL Server 2016 SP1 with SQL Management Studio 2017
-* IIS 10
+* SQL Server 2016 SP1 with SQL Management Studio 2017 for Database server
+* IIS 10 for Web servers
 * .NET Framework 4.6.2 or later
 * PowerShell 5.1 or later
 * Sitecore Installation Framework Module (SIF)
@@ -40,35 +40,19 @@ For each role or instance in *the diagram*, find their respective prerequesites 
 
 To setup *Solr* instance see section [Installation->Solr Instance](README.md#solr-instance-1)
 
-### XConnect Instance
-```
-TODO: list prerequisites
-```
+### All Other Instances
 
-### xDB Services Instance
-```
-TODO: list prerequisites
-```
-
-### Processing Instance
-```
-TODO: list prerequisites
-```
-
-### Reporting Instance
-```
-TODO: list prerequisites
-```
-
-### Content Management Instance
-```
-TODO: list prerequisites
-```
-
-### Content Delivery Instance
-```
-TODO: list prerequisites
-```
+* Refer to the *general prerequisites* for applicable prerequisites
+* Add IIS role with IIS Management Console feature
+* Add .Net Framework 4.6 feature
+* Microsoft Visual C++ 2015 Redistributable
+* WebPlatformInstaller_amd64_en-US.msi (Web Platform Installer 5.0)
+* WebPlatformIsntaller_amd64_en-US (Web Platform Installer)
+* Web Deploy 3.6 for Hosting Servers using Web Platform Installer
+* UrlRewrite2.exe (URLRewrite2) using Web Platform Installer
+* DacFramework-x64.msi (Microsoft SQL Server Data-Tier Application Framework (DacFx) version 2016) 
+* SQLSysClrTypes.msi 
+* SQLCMD
 
 ## Installation 
 
