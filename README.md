@@ -38,7 +38,7 @@ For each role or instance in *the diagram*, find their respective prerequesites 
 * NSSM 2.24 (installed using Chocolatey)
 * OpenSSL.Light 1.1.0 (installed using Chocolatey)
 
-To setup *Solr* instance see section [Installation->Solr]
+To setup *Solr* instance see section [Installation->Solr](README#Solr Instance)
 
 ### XConnect Instance
 ```
