@@ -59,15 +59,22 @@ This includes *XConnect*, *xDB Services*, *Content Management*, *Content Deliver
 
 The general approach is to start with setting up *Solr* instance then followed by *XConnect*, *xDB Services*, *Content Management*, *Content Delivery*, *Processing* and *Reporting* instances.
 
-### Installation Directory
+### General Installation
 
 1. Clone this repository into an *Installation Directory*.
-
-> I.e.: c:\xp or d:\xp in this example.
-
-2. Download and extract the *Sitecore 9.0.1 rev. 171219 (WDP XP1 packages).zip* to the *Installation Directory*. 
-
-> Note: All *.zip files should be under directly of the root of the *Installation Directory*.
+> Note: In this scenario is c:\xp, you can also use other location i.e. d:\xp but need to update the scripts.
+2. Download and extract *Sitecore 9.0.1 rev. 171219 (WDP XP1 packages).zip* to the *Installation Directory*. 
+> Note: All  WDP Packages (*.zip files) should be directly under the *Installation Directory*.
+3. Save you Sitecore license file directly under the *Installation Directory* as *license.xml*.
+4. Set NETWORK SERVICE with Modify permission to c:\inetpub\wwwroot folder
+5. Set IIS_IUSRS with Modify permission to %WINDIR%\temp\ folder
+6. Set IIS_IUSRS with Modify permission to %WINDIR%\Globalization\ folder
+7. Set IIS_IUSRS with Modify permission to %PROGRAMDATA%\Microsoft\Crypto\ folder 
+8. Clear the Web Platform Installer download cache
+9. Enable Contained Database Authentication by running a sql query below
+```
+sp_configure 'contained database authentication', 1; GO RECONFIGURE; GO
+```
 
 ### Solr Instance
 
@@ -81,17 +88,6 @@ The general approach is to start with setting up *Solr* instance then followed b
 8. Edit and run c:\xp\sitecore-SolrCores.ps1 to configure the cores for a Sitecore deployment. if the cores exist, they will be overwritten.
 9. Edit and run c:\xp\xconnect-SolrCores.ps1 to configure the cores for an XConnect deployment. if the cores exist, they will be overwritten.
 
-### General Installation For All Instances
-
-1. Set NETWORK SERVICE with Modify permission to c:\inetpub\wwwroot folder
-2. Set IIS_IUSRS with Modify permission to %WINDIR%\temp\ folder
-3. Set IIS_IUSRS with Modify permission to %WINDIR%\Globalization\ folder
-4. Set IIS_IUSRS with Modify permission to %PROGRAMDATA%\Microsoft\Crypto\ folder 
-5. Clear the Web Platform Installer download cache
-6. Enable Contained Database Authentication by running a sql query below
-```
-sp_configure 'contained database authentication', 1; GO RECONFIGURE; GO
-```
 ## Built With
 
 * [Sitecore 9.0 Update 1](http://www.sitecore.come) - The XP Platform
