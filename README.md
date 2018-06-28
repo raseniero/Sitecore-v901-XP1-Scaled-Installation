@@ -16,10 +16,6 @@ What things you need to run the scripts the target environment.
 * SQL Server 2016 SP1
 * MS SQL Management Studio 2017
 
-```
-
-```
-
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
