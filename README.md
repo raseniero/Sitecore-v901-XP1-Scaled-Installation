@@ -10,7 +10,7 @@ These instructions will serve as a guide or a reference for deploying Sitecore 9
 
 In the following scenario below, every core role and XP service role is performed by a dedicated server. This is a pre-built topology and is also known as XP1 Scaled. However, roles can be combine into a single instance, e.g. all Solr roles (i.e. xDB and CMS Solr Cores) can be installed in a single Solr instance. 
 
-We will be referencing *the diagram* below in our instructions to come, please familiarize it!
+We will be referencing *the diagram* below in our instructions to come.
 
 ![fully-scaled-simple1](https://user-images.githubusercontent.com/2329372/42052718-721db50a-7ac4-11e8-8709-abb304179e2c.png)
 
