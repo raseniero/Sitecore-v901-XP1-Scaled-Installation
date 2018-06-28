@@ -14,9 +14,9 @@ We will be referencing *the diagram* below in our instructions to come, please f
 
 ![fully-scaled-simple1](https://user-images.githubusercontent.com/2329372/42052718-721db50a-7ac4-11e8-8709-abb304179e2c.png)
 
-## General Prerequisites
+## Prerequisites
 
-Depending on the role or instance, each has it's own respective software prerequisites, but the general prerequisites are the following below.
+Depending on the role or instance, each has it's own respective software prerequisites, but the *general prerequisites* are the following below.
 
 * Windows Server 2016
 * SQL Server 2016 SP1 with SQL Management Studio 2017
@@ -27,7 +27,7 @@ Depending on the role or instance, each has it's own respective software prerequ
 
 For the Hardware requirements, please refer to the Sitecore 9.0 Installation Guide. For each role or instance in *the diagram*, find their respective prerequesites below.
 
-### Solr Instance Prerequisites
+### Solr 
 
 * Solr 6.6.2
 * Chocolatey 0.10.11
@@ -35,39 +35,41 @@ For the Hardware requirements, please refer to the Sitecore 9.0 Installation Gui
 * NSSM 2.24 (installed using Chocolatey)
 * OpenSSL.Light 1.1.0 (installed using Chocolatey)
 
-### XConnect Instance Prerequisites
+### XConnect 
 ```
 TODO: list prerequisites
 ```
 
-### xDB Services Instance Prerequisites
+### xDB Services 
 ```
 TODO: list prerequisites
 ```
 
-### Processing Instance Prerequisites
+### Processing 
 ```
 TODO: list prerequisites
 ```
 
-### Reporting Instance Prerequisites
+### Reporting
 ```
 TODO: list prerequisites
 ```
 
-### CM Instance Prerequisites
+### Content Management
 ```
 TODO: list prerequisites
 ```
 
-### CD Instance Prerequisites
+### Content Delivery
 ```
 TODO: list prerequisites
 ```
 
-## Installing
+## Installation
 
 The general approach is to start with setting up *Solr* instance then followed by *XConnect*, *xDB Services*, *Content Management*, *Content Delivery*, *Processing* and *Reporting* instances.
+
+### Solr 
 
 1. Install Windows Server 2016
 2. Add IIS Role 10
