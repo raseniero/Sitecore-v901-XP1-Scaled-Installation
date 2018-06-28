@@ -74,15 +74,15 @@ TODO: list prerequisites
 
 The general approach is to start with setting up *Solr* instance then followed by *XConnect*, *xDB Services*, *Content Management*, *Content Delivery*, *Processing* and *Reporting* instances.
 
-### Install Directory
+### Installation Directory
 
-1. Clone this repository into an *installation folder*.
+1. Clone this repository into an *Installation Directory*.
 
 > I.e.: c:\xp or d:\xp in this example.
 
-2. Download and extract the *Sitecore 9.0.1 rev. 171219 (WDP XP1 packages).zip* to the *Install Directory*. 
+2. Download and extract the *Sitecore 9.0.1 rev. 171219 (WDP XP1 packages).zip* to the *Installation Directory*. 
 
-> Note: All *.zip files should be under directly of the root of the *Install Directory*.
+> Note: All *.zip files should be under directly of the root of the *Installation Directory*.
 
 ### Solr Instance
 
