@@ -23,6 +23,7 @@ Depending on the role or instance, each has it's own respective software prerequ
 * IIS 10
 * .NET Framework 4.6.2 or later
 * PowerShell 5.1 or later
+* Sitecore Installation Framework Module (SIF)
 * Any Web Browsers in this list: Microsoft Internet Explorer 11, Mozilla Firefox, Google Chrome or Microsoft Edge 
 
 For the Hardware requirements, please refer to the Sitecore 9.0 Installation Guide. 
