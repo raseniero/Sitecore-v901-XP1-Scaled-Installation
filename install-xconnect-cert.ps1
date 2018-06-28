@@ -7,6 +7,7 @@ $Config = "$PSScriptRoot\config"
 $certParams = @{     
     Path = "$Config\xconnect-createcert.json"     
     CertificateName = "$prefix.xconnect_client" 
+    CertPath = "$PSScriptRoot"
 } 
 Write-Host @solrParams
 Install-SitecoreConfiguration @certParams -Verbose -WhatIf
