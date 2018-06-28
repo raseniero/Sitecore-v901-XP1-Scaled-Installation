@@ -1,4 +1,4 @@
-# Sitecore 9.0 Scaled Installation
+# Sitecore 9.0 Scaled Installation Notes
 
 This is a guide or a reference for installing Sitecore 9.0 in a fully scaled on-premise environment.
 
