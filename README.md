@@ -1,17 +1,21 @@
-# Project Title
+# Sitecore XP1 Scaled Installation (WORK-IN-PROGRESS)
 
-One Paragraph of project description goes here
+This is a how-to for installing Sitecore XP in a scaled topology.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for deploying Sitecore XP1 scaled. 
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+What things you need to run the scripts the target environment.
+
+* Windows Server 2016
+* SQL Server 2016 SP1
+* MS SQL Management Studio 2017
 
 ```
-Give example
+
 ```
 
 ### Installing
@@ -32,47 +36,17 @@ until finished
 
 End with an example of getting some data out of the system or using it for a little demo
 
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Chocolatey](http://www.chocolatey.org) - The Windows Packager
 
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Ramon Aseniero** - *Initial work* - [Sitecore](https://github.com/raseniero)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
