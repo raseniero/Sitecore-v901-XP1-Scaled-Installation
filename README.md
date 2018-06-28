@@ -61,6 +61,8 @@ The general approach is to start with setting up *Solr* instance then followed b
 
 ### General Installation
 
+This applies to the follwing instances or roles *XConnect*, *xDB Services*, *Content Management*, *Content Delivery*, *Processing* and *Reporting* instances.
+
 1. Clone this repository into an *Installation Directory*.
 > Note: In this scenario is c:\xp, you can also use other location i.e. d:\xp but need to update the scripts.
 2. Download and extract *Sitecore 9.0.1 rev. 171219 (WDP XP1 packages).zip* to the *Installation Directory*. 
@@ -71,7 +73,7 @@ The general approach is to start with setting up *Solr* instance then followed b
 6. Set IIS_IUSRS with Modify permission to %WINDIR%\Globalization\ folder
 7. Set IIS_IUSRS with Modify permission to %PROGRAMDATA%\Microsoft\Crypto\ folder 
 8. Clear the Web Platform Installer download cache
-9. Enable Contained Database Authentication by running a sql query below
+9. Enable *contained database authentication* by running a sql query below
 ```
 sp_configure 'contained database authentication', 1; GO RECONFIGURE; GO
 ```
