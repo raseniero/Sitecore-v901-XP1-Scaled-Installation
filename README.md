@@ -40,7 +40,7 @@ For each role or instance in *the diagram*, find their respective prerequesites 
 
 To setup *Solr* instance see section [Installation->Solr Instance](README.md#solr-instance-1)
 
-### All Instances
+### All Other Instances
 
 This includes *XConnect*, *xDB Services*, *Content Management*, *Content Delivery*, *Processing* and *Reporting* instances.
 
@@ -78,7 +78,7 @@ This applies to the follwing instances or roles *XConnect*, *xDB Services*, *Con
 sp_configure 'contained database authentication', 1; GO RECONFIGURE; GO
 ```
 
-### Solr Instance
+### Solr Instance Installation
 
 1. Install Chocolatey
 2. Install NSSM using Chocolatey
@@ -90,9 +90,33 @@ sp_configure 'contained database authentication', 1; GO RECONFIGURE; GO
 8. Edit and run c:\xp\sitecore-SolrCores.ps1 to configure the cores for a Sitecore deployment. if the cores exist, they will be overwritten.
 9. Edit and run c:\xp\xconnect-SolrCores.ps1 to configure the cores for an XConnect deployment. if the cores exist, they will be overwritten.
 
+### xConnect Instance Installation
+
+1. Edit and run c:\xp\xconnect-xp1-Collection.ps1.
+2. Edit and run c:\xp\xconnect-xp1-CollectionSearch.ps1.
+3. Edit and run c:\xp\xconnect-xp1-MarketingAutomation.ps1
+4. Edit and run c:\xp\xconnect-xp1-MarketingAutomationReporting.ps1
+5. Edit and run c:\xp\xconnect-xp1-ReferenceData.ps1
+
+### Content Management Instance Installation
+
+1. Edit and run c:\xp\sitecore-xp1-ContentManagement.ps1.
+
+### Reporting Instance Installation
+
+1. Edit and run c:\xp\sitecore-xp1-Reporting.ps1.
+
+### Processing Instance Installation
+
+1. Edit and run c:\xp\sitecore-xp1-Processing.ps1.
+
+### Content Delivery Instance Installation
+
+1. Edit and run c:\xp\sitecore-xp1-ContentDelivery.ps1.
+
 ## Built With
 
-* [Sitecore 9.0 Update 1](http://www.sitecore.come) - The XP Platform
+* [Sitecore 9.0 Update 1](http://www.sitecore.come) - The Sitecore XP Platform
 * [Chocolatey](http://www.chocolatey.org) - The Windows Packager
 
 ## Contributing
