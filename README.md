@@ -8,11 +8,13 @@ This documentation is still a **work-in-progress**, do expect constant updates.
 
 These instructions will serve as a guide or a reference for deploying Sitecore 9.0 in a fully scaled on-premise environment. 
 
-In the following scenario below, every core role and XP service role is performed by a dedicated server. This is a pre-built topology and is also known as XP1 Scaled. However, roles can be combine into a single instance, e.g. all xConnect roles (i.e. xDB and CMS Solr Cores) can be installed in a single Solr instance. We will be referencing back *the diagram* in our instructions to come.
+In the following scenario below, every core role and XP service role is performed by a dedicated server. This is a pre-built topology and is also known as XP1 Scaled. However, roles can be combine into a single instance, e.g. all Solr roles (i.e. xDB and CMS Solr Cores) can be installed in a single Solr instance. 
+
+We will be referencing *the diagram* below in our instructions to come, please familiarize it!
 
 ![fully-scaled-simple1](https://user-images.githubusercontent.com/2329372/42052718-721db50a-7ac4-11e8-8709-abb304179e2c.png)
 
-### General Prerequisites
+## General Prerequisites
 
 Depending on the role or instance, each has it's own respective prerequisites, but the general prerequisites are the following below.
 
@@ -24,7 +26,7 @@ Depending on the role or instance, each has it's own respective prerequisites, b
 
 For each role or instance in *the diagram*, I will define their respective prerequesites below.
 
-### Installing
+## Installing
 
 The general approach is to start with setting up *Solr* instance then followed by *XConnect*, *xDB Services*, *Content Management*, *Content Delivery*, *Processing* and *Reporting* instances.
 
