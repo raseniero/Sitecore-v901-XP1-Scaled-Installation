@@ -1,24 +1,32 @@
-# Sitecore XP1 Scaled Installation
+# Sitecore 9.0 Scaled Installation
 
-This is a how-to for installing Sitecore XP in a scaled topology.
+This is a guide or a reference for installing Sitecore 9.0 in a fully scaled on-premise environment.
 
-This documentation is a **work-in-progress**.
+This documentation is still a **work-in-progress**, do expect constant updates.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for deploying Sitecore XP1 scaled. 
+These instructions will serve as a guide or a reference for deploying Sitecore 9.0 in a fully scaled on-premise environment. 
 
-### Prerequisites
+In the following scenario below, every core role and XP service role is performed by a dedicated server. This is a pre-built topology and is also known as XP1 Scaled. However, roles can be combine into a single instance, e.g. all xConnect roles (i.e. xDB and CMS Solr Cores) can be installed in a single Solr instance. We will be referencing back *the diagram* in our instructions to come.
 
-What things you need to run the scripts the target environment.
+![fully-scaled-simple1](https://user-images.githubusercontent.com/2329372/42052718-721db50a-7ac4-11e8-8709-abb304179e2c.png)
+
+### General Prerequisites
+
+Depending on the role or instance, each has it's own respective prerequisites, but the general prerequisites are the following below.
 
 * Windows Server 2016
-* SQL Server 2016 SP1
-* MS SQL Management Studio 2017
+* SQL Server 2016 SP1 with SQL Management Studio 2017
+* IIS 10
+* .NET Framework 4.6.2 or later
+* Any Web Browsers in this list: Microsoft Internet Explorer 11, Mozilla Firefox, Google Chrome or Microsoft Edge 
+
+For each role or instance in *the diagram*, I will define their respective prerequesites below.
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
+The general approach is to start with setting up *Solr* instance then followed by *XConnect*, *xDB Services*, *Content Management*, *Content Delivery*, *Processing* and *Reporting* instances.
 
 1. Install Windows Server 2016
 2. Add IIS Role 10
@@ -73,6 +81,7 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Built With
 
+* [Sitecore 9.0 Update 1](http://www.sitecore.come) - The XP Platform
 * [Chocolatey](http://www.chocolatey.org) - The Windows Packager
 
 ## Contributing
