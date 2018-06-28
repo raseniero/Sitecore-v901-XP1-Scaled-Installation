@@ -1,5 +1,5 @@
 #define parameters 
-$prefix = "xconn" 
+$prefix = "xp" 
 $PSScriptRoot = "C:\xp"
 $Config = "$PSScriptRoot\config"
  
@@ -10,4 +10,4 @@ $certParams = @{
     CertPath = "$PSScriptRoot"
 } 
 Write-Host @solrParams
-Install-SitecoreConfiguration @certParams -Verbose -WhatIf
+Install-SitecoreConfiguration @certParams -Verbose
