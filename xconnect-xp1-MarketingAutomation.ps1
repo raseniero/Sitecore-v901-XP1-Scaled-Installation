@@ -1,31 +1,33 @@
 #define parameters 
-$prefix = "xp" 
-$PSScriptRoot = "C:\xp0901"
-$XConnectCollectionService = "$prefix.xconnect" 
-$sitecoreSiteName = "$prefix.sc"
+$Prefix = "xp" 
+$PSScriptRoot = "C:\xp"
+$ConfigPath = "$PSScriptRoot\config"
+
+$XConnectCollectionService = "$Prefix.xconnect" 
+$SitecoreSiteName = "$Prefix.sc"
 
 $SolrUrl = "https://localhost:8983/solr" 
 $SolrRoot = "C:\solr-6.6.2" 
-$SolrService = "solr-6.6.2"
+$SolrService = "solr662" 
 
-$SqlServer = "TABLET-THERJ67Q" 
+$SqlServer = "RAMONASENIE0E1F" 
 $SqlAdminUser = "sa" 
 $SqlAdminPassword="jajnav5@" 
   
 #install sitecore instance 
-$xconnectHostName = "$prefix.xconnect" 
+$xconnectHostName = "$Prefix.xconnect" 
 $sitecoreParams = @{     
-    Path = "$PSScriptRoot\config\xconnect-xp1-collection.json"     
-    Package = "$PSScriptRoot\Sitecore 9.0.1 rev. 171219 (OnPrem)_xp1collection.scwdp.zip"     
+    Path = "$ConfigPath\xconnect-xp1-MarketingAutomation.json"     
+    Package = "$PSScriptRoot\Sitecore 9.0.1 rev. 171219 (OnPrem)_xp1marketingautomation.scwdp.zip"     
     LicenseFile = "$PSScriptRoot\license.xml"     
-    SqlDbPrefix = $prefix  
+    SqlDbPrefix = $Prefix  
     SqlServer = $SqlServer  
     SqlAdminUser = $SqlAdminUser     
     SqlAdminPassword = $SqlAdminPassword     
-    SolrCorePrefix = $prefix  
+    SolrCorePrefix = $Prefix  
     SolrUrl = $SolrUrl     
     XConnectCert = $certParams.CertificateName     
-    Sitename = $sitecoreSiteName         
+    Sitename = $SitecoreSiteName         
     XConnectCollectionService = "https://$XConnectCollectionService"    
 } 
 Write-Host @solrParams
