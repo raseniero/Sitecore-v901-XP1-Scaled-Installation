@@ -29,7 +29,7 @@ For the Hardware requirements, please refer to the Sitecore 9.0 Installation Gui
 
 For each role or instance in *the diagram*, find their respective prerequesites below.
 
-### Solr 
+### Solr Instance
 
 * Solr 6.6.2
 * Chocolatey 0.10.11
@@ -39,37 +39,37 @@ For each role or instance in *the diagram*, find their respective prerequesites 
 
 To setup *Solr* instance see section [Installation->Solr]
 
-### XConnect 
+### XConnect Instance
 ```
 TODO: list prerequisites
 ```
 
-### xDB Services 
+### xDB Services Instance
 ```
 TODO: list prerequisites
 ```
 
-### Processing 
+### Processing Instance
 ```
 TODO: list prerequisites
 ```
 
-### Reporting
+### Reporting Instance
 ```
 TODO: list prerequisites
 ```
 
-### Content Management
+### Content Management Instance
 ```
 TODO: list prerequisites
 ```
 
-### Content Delivery
+### Content Delivery Instance
 ```
 TODO: list prerequisites
 ```
 
-## Installation
+## Installation 
 
 The general approach is to start with setting up *Solr* instance then followed by *XConnect*, *xDB Services*, *Content Management*, *Content Delivery*, *Processing* and *Reporting* instances.
 
@@ -83,7 +83,7 @@ The general approach is to start with setting up *Solr* instance then followed b
 
 > Note: All *.zip files should be under directly of the root of the *installation folder*.
 
-### Solr 
+### Solr Instance
 
 1. Install Chocolatey
 2. Install NSSM using Chocolatey
