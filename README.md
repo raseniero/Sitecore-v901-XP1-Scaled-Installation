@@ -16,15 +16,54 @@ We will be referencing *the diagram* below in our instructions to come, please f
 
 ## General Prerequisites
 
-Depending on the role or instance, each has it's own respective prerequisites, but the general prerequisites are the following below.
+Depending on the role or instance, each has it's own respective software prerequisites, but the general prerequisites are the following below.
 
 * Windows Server 2016
 * SQL Server 2016 SP1 with SQL Management Studio 2017
 * IIS 10
 * .NET Framework 4.6.2 or later
+* PowerShell 5.1 or later
 * Any Web Browsers in this list: Microsoft Internet Explorer 11, Mozilla Firefox, Google Chrome or Microsoft Edge 
 
-For each role or instance in *the diagram*, I will define their respective prerequesites below.
+For the Hardware requirements, please refer to the Sitecore 9.0 Installation Guide. For each role or instance in *the diagram*, find their respective prerequesites below.
+
+### Solr Instance Prerequisites
+
+* Solr 6.6.2
+* Chocolatey 0.10.11
+* Java/JRE 1.8 (installed using Chocolatey)
+* NSSM 2.24 (installed using Chocolatey)
+* OpenSSL.Light 1.1.0 (installed using Chocolatey)
+
+### XConnect Instance Prerequisites
+```
+TODO: list prerequisites
+```
+
+### xDB Services Instance Prerequisites
+```
+TODO: list prerequisites
+```
+
+### Processing Instance Prerequisites
+```
+TODO: list prerequisites
+```
+
+### Reporting Instance Prerequisites
+```
+TODO: list prerequisites
+```
+
+### CM Instance Prerequisites
+```
+TODO: list prerequisites
+```
+
+### CD Instance Prerequisites
+```
+TODO: list prerequisites
+```
 
 ## Installing
 
