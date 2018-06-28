@@ -18,12 +18,12 @@ We will be referencing *the diagram* below in our instructions to come.
 
 Depending on the role or instance, each has it's own respective software prerequisites, but the *general prerequisites* are the following below.
 
-* Windows Server 2016
-* SQL Server 2016 SP1 with SQL Management Studio 2017 for Database server
-* IIS 10 for Web servers
+* Microsoft Windows Server 2016
+* Microsoft SQL Server 2016 SP1 with SQL Management Studio 2017 for Database server
+* IIS 10 for Web server
 * .NET Framework 4.6.2 or later
 * PowerShell 5.1 or later
-* Sitecore Installation Framework Module (SIF)
+* Sitecore Installation Framework (SIF) PowerShell module
 * Any Web Browsers in this list: Microsoft Internet Explorer 11, Mozilla Firefox, Google Chrome or Microsoft Edge 
 
 For the Hardware requirements, please refer to the Sitecore 9.0 Installation Guide. 
@@ -40,17 +40,18 @@ For each role or instance in *the diagram*, find their respective prerequesites 
 
 To setup *Solr* instance see section [Installation->Solr Instance](README.md#solr-instance-1)
 
-### All Other Instances
+### All Instances
+
+This includes *XConnect*, *xDB Services*, *Content Management*, *Content Delivery*, *Processing* and *Reporting* instances.
 
 * Refer to the *general prerequisites* for applicable prerequisites
 * Add IIS role with IIS Management Console feature
 * Add .Net Framework 4.6 feature
-* Microsoft Visual C++ 2015 Redistributable
-* WebPlatformInstaller_amd64_en-US.msi (Web Platform Installer 5.0)
-* WebPlatformIsntaller_amd64_en-US (Web Platform Installer)
+* Microsoft Visual C++ 2015 Redistributable (vc_redist.x64.exe)
+* Web Platform Installer 5.0 (WebPlatformInstaller_amd64_en-US.msi)
 * Web Deploy 3.6 for Hosting Servers using Web Platform Installer
 * UrlRewrite2.exe (URLRewrite2) using Web Platform Installer
-* DacFramework-x64.msi (Microsoft SQL Server Data-Tier Application Framework (DacFx) version 2016) 
+* Microsoft SQL Server Data-Tier Application Framework (DacFx) version 2016 (DacFramework-x64.msi)
 * SQLSysClrTypes.msi 
 * SQLCMD
 
@@ -80,58 +81,17 @@ The general approach is to start with setting up *Solr* instance then followed b
 8. Edit and run c:\xp\sitecore-SolrCores.ps1 to configure the cores for a Sitecore deployment. if the cores exist, they will be overwritten.
 9. Edit and run c:\xp\xconnect-SolrCores.ps1 to configure the cores for an XConnect deployment. if the cores exist, they will be overwritten.
 
-### General Installation
-1. Install Windows Server 2016
-2. Add IIS Role 10
-	a. IIS Console
-3. Add .Net Framework 4.6.2 feature
-4. Install MS SQL Server 2016 SP1
-5. Install MS SQL Management Studio 2017
-6. If use for Developer's environment Then
-	a. Install Visual Studio 2017 Professional
-7. Install Prerequisite softwares for XP
-	a. If Microsoft Visual C++ 2015 Redistributable does not exist Then
-		i. Install vc_redist.x64.exe 
-8. Set NETWORK SERVICE with Modify permissino to c:\inetpub\wwwroot
-9. Set IIS_IUSRS with Modify permission to %WINDIR%\temp\
-10. Set IIS_IUSRS with Modify permission to %WINDIR%\Globalization\
-11. Set IIS_IUSRS with Modify permission to %PROGRAMDATA%\Microsoft\Crypto 
-12. If Powershell version (i.e. $PSVersion.PSVersion) is < 5.1 Then
-	a. Install Powershell version 5.1
-13. Install WebPlatformInstaller_amd64_en-US.msi (Web Platform Installer 5.0)
-14. Install IIS Manager from the Add Features in the Server Management
-15. Install WebPlatformIsntaller_amd64_en-US (Web Platform Installer)
-16. Install Web Deploy 3.6 for Hosting Servers using Web Platform Installer
-17. Install UrlRewrite2.exe (URLRewrite2) using Web Platform Installer
-18. Install DacFramework-x64.msi (Microsoft SQL Server Data-Tier Application Framework (DacFx) version 2016) 
-19.  Install SQLSysClrTypes.msi 
-20. Clear the Web Platform Installer download cache
-21. Enable Contained Database Authentication  
-	a. Run query = sp_configure 'contained database authentication', 1; GO RECONFIGURE; GO
-22. Install Solr 6.2.2
-	a. Install NSSM use Chocolatey
-	b. Install JRE 1.8 use Chocolatey
-	c. Install OpenSSL use Chocolatey
-	d. Install Solr 6.2.2
-	e. Install SSL
-	f. Setup as Service
-23. Set Up the Sitecore Installation Framework Module using Powershell
-	a. Execute the following commands below
-		i. Register-PSRepository -Name SitecoreGallery -SourceLocation https://sitecore.myget.org/F/scpowershell/api/v2 
-		ii. Install-Module SitecoreInstallFramework 
-		iii. Update-Module SitecoreInstallFramework 
-		iv. Validate installation by running the command below
-			1) Get-Module SitecoreInstallFramework –ListAvailable 
-24. Create a c:\xp installation folder then download the following
-	a. Depending on the type of installation download the necessary version
-		i. Sitecore 9.0.1 rev. 171219 (WDP XP0 packages).zip - Single
-		ii. Sitecore 9.0.1 rev. 171219 (WDP XP1 packages).zip - Scaled
-	b. Download xp-Installation-script.ps1
-25. Edit and Run the Installation Script 
+### General Installation For All Instances
 
-
-End with an example of getting some data out of the system or using it for a little demo
-
+1. Set NETWORK SERVICE with Modify permission to c:\inetpub\wwwroot folder
+2. Set IIS_IUSRS with Modify permission to %WINDIR%\temp\ folder
+3. Set IIS_IUSRS with Modify permission to %WINDIR%\Globalization\ folder
+4. Set IIS_IUSRS with Modify permission to %PROGRAMDATA%\Microsoft\Crypto\ folder 
+5. Clear the Web Platform Installer download cache
+6. Enable Contained Database Authentication by running a sql query below
+```
+sp_configure 'contained database authentication', 1; GO RECONFIGURE; GO
+```
 ## Built With
 
 * [Sitecore 9.0 Update 1](http://www.sitecore.come) - The XP Platform
