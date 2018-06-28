@@ -25,7 +25,9 @@ Depending on the role or instance, each has it's own respective software prerequ
 * PowerShell 5.1 or later
 * Any Web Browsers in this list: Microsoft Internet Explorer 11, Mozilla Firefox, Google Chrome or Microsoft Edge 
 
-For the Hardware requirements, please refer to the Sitecore 9.0 Installation Guide. For each role or instance in *the diagram*, find their respective prerequesites below.
+For the Hardware requirements, please refer to the Sitecore 9.0 Installation Guide. 
+
+For each role or instance in *the diagram*, find their respective prerequesites below.
 
 ### Solr 
 
@@ -34,6 +36,8 @@ For the Hardware requirements, please refer to the Sitecore 9.0 Installation Gui
 * Java/JRE 1.8 (installed using Chocolatey)
 * NSSM 2.24 (installed using Chocolatey)
 * OpenSSL.Light 1.1.0 (installed using Chocolatey)
+
+To setup *Solr* instance see section [Installation->Solr]
 
 ### XConnect 
 ```
@@ -71,6 +75,15 @@ The general approach is to start with setting up *Solr* instance then followed b
 
 ### Solr 
 
+1. Install Chocolatey
+2. Install NSSM using Chocolatey
+2. Install JRE 1.8 using Chocolatey
+3. Install OpenSSL using Chocolatey
+4. Install Solr 6.2.2
+5. Install SSL
+6. Setup as a Service using NSSM
+
+### General Installation
 1. Install Windows Server 2016
 2. Add IIS Role 10
 	a. IIS Console
