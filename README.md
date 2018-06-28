@@ -93,8 +93,8 @@ The general approach is to start with setting up *Solr* instance then followed b
 5. Install Solr 6.2.2
 6. Install SSL
 7. Setup as a Service using NSSM
-8. Edit and run c:\xp\sitecore-SolrCores.ps1
-9. Edit and run c:\xp\xconnect-SolrCores.ps1 
+8. Edit and run c:\xp\sitecore-SolrCores.ps1 to configure the cores for a Sitecore deployment. if the cores exist, they will be overwritten.
+9. Edit and run c:\xp\xconnect-SolrCores.ps1 to configure the cores for an XConnect deployment. if the cores exist, they will be overwritten.
 
 ### General Installation
 1. Install Windows Server 2016
