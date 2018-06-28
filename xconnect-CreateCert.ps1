@@ -1,13 +1,13 @@
 #define parameters 
-$prefix = "xp" 
-$PSScriptRoot = "C:\xp"
+$Prefix = "xp901" 
+$PSScriptRoot = "c:\xp"
 $Config = "$PSScriptRoot\config"
  
 #install client certificate for xconnect 
-$certParams = @{     
+$XConnectCertParams = @{     
     Path = "$Config\xconnect-createcert.json"     
-    CertificateName = "$prefix.xconnect_client" 
+    CertificateName = "$Prefix.xconnect_client" 
     CertPath = "$PSScriptRoot"
 } 
-Write-Host @solrParams
-Install-SitecoreConfiguration @certParams -Verbose
+Write-Host @XConnectCertParams
+Install-SitecoreConfiguration @XConnectCertParams -Verbose
