@@ -38,7 +38,7 @@ For each role or instance in *the diagram*, find their respective prerequesites 
 * NSSM 2.24 (installed using Chocolatey)
 * OpenSSL.Light 1.1.0 (installed using Chocolatey)
 
-To setup *Solr* instance see section [Installation->Solr Instance](README.md#solr-instance-1)
+To setup *Solr* instance see section [Installation->Solr Instance](README.md#Solr-Instance-Installation)
 
 ### All Other Instances
 
@@ -78,7 +78,7 @@ This applies to the follwing instances or roles *XConnect*, *xDB Services*, *Con
 sp_configure 'contained database authentication', 1; GO RECONFIGURE; GO
 ```
 
-### Solr Instance/Role Installation
+### Solr Instance Installation
 
 1. Install Chocolatey by runnning the PowerShell script below as Administrator.
 ```
