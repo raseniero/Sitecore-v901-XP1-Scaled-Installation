@@ -2,7 +2,7 @@
 
 This is a guide or a reference for installing Sitecore 9.0 in a fully scaled on-premise environment.
 
-This documentation is still a **work-in-progress**, do expect constant updates.
+This documentation is still a **work-in-progress**, do expect constant updates. For questions please send an email to rasenieroAtGmailDotCom.
 
 ## Getting Started
 
