@@ -31,7 +31,7 @@ $SqlServer = "RAMONASENIE0E1F"
 $XConnectEnvironment ="Development" #For production environment use Production
 $XConnectLogLevel = "Information" #Can be Debug
 
-#install sitecore instance 
+#install xConnect Collection role 
 $XConnectCollectionParams = @{     
     Path = $Path  
     Package = $Package     

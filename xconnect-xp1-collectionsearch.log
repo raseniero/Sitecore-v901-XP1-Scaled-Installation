@@ -1,0 +1,808 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20180629125257
+Username: RAMONASENIE0E1F\ras
+RunAs User: RAMONASENIE0E1F\ras
+Machine: RAMONASENIE0E1F (Microsoft Windows NT 10.0.14393.0)
+Host Application: C:\Windows\system32\WindowsPowerShell\v1.0\PowerShell_ISE.exe
+Process ID: 856
+PSVersion: 5.1.14393.1884
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.14393.1884
+BuildVersion: 10.0.14393.1884
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\xp\xconnect-xp1-collectionsearch.180629.log
+                                                              ************************************
+                                                                   Sitecore Install Framework
+                                                                         Version - 1.2.1
+                                                              ************************************
+
+
+WorkingDirectory  : C:\xp
+LogPath           : C:\xp\xconnect-xp1-collectionsearch.180629.log
+WhatIf            : False
+Verbose           : SilentlyContinue
+Configuration     : C:\xp\config\xconnect-xp1-collectionsearch.json
+Debug             : SilentlyContinue
+WarningAction     : Continue
+ErrorAction       : Stop
+InformationAction : Continue
+
+
+
+
+[----------------------------------------------------------------- CreatePaths : EnsurePath ------------------------------------------------------------------]
+[CreatePaths]:[Create] C:\inetpub\wwwroot\xp901.sc
+
+[--------------------------------------------------------------- CreateAppPool : AppPool ---------------------------------------------------------------------]
+[CreateAppPool]:[Exists] xp901.sc
+[CreateAppPool]:[Setting] processModel.identityType => ApplicationPoolIdentity
+
+[---------------------------------------------- SetAppPoolCertStorePermissions : FilePermissions -------------------------------------------------------------]
+[SetAppPoolCertStorePermissions]:[Allow] IIS AppPool\xp901.sc
+[SetAppPoolCertStorePermissions]:[Path] C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\91b96ebb38a6a60bb219402c518edcbc_ffb0b732-144c-463c-be18-2420269ed3d0
+[SetAppPoolCertStorePermissions]:[Rights] Read
+[SetAppPoolCertStorePermissions]:[Inherit] None
+[SetAppPoolCertStorePermissions]:[Propagate] None
+
+[--------------------------------------------------------------- CreateWebsite : Website ---------------------------------------------------------------------]
+[CreateWebsite]:[Exists] xp901.sc
+[CreateWebsite]:[Setting] applicationPool => xp901.sc
+[CreateWebsite]:[Setting] physicalPath => C:\inetpub\wwwroot\xp901.sc
+
+[----------------------------------------------------------------- StopWebsite : ManageWebsite ---------------------------------------------------------------]
+[StopWebsite]:[Stop] xp901.sc
+WARNING: Website xp901.sc is already Stopped
+
+[----------------------------------------------------------------- StopAppPool : ManageAppPool ---------------------------------------------------------------]
+[StopAppPool]:[Stop] xp901.sc
+
+[----------------------------------------------------------------- StopService : ManageService ---------------------------------------------------------------]
+[StopService]:[Updating] xp901.sc-indexworker
+WARNING: Service 'xp901.sc-indexworker' does not exist
+
+[--------------------------------------------------------------- RemoveService : RemoveService ---------------------------------------------------------------]
+WARNING: Could not find service: 'xp901.sc-indexworker'
+
+[-------------------------------------------------------- RemoveDefaultBinding : WebBinding ------------------------------------------------------------------]
+[RemoveDefaultBinding]:[Remove] 
+protocol bindingInformation sslFlags
+-------- ------------------ --------
+http     *:80:                     0
+
+[--------------------------------------- CreateBindingsWithThumprint [Skipped] : WebBinding ------------------------------------------------------------------]
+
+[--------------------------------------------- SetClientCertificatePermissions : WebsiteClientCert -----------------------------------------------------------]
+[SetClientCertificatePermissions]:[xp901.sc] [Setting] sslFlags => SslNegotiateCert
+
+[----------------------------------------------- SupportListManagerLargeUpload : IISConfiguration ------------------------------------------------------------]
+[SupportListManagerLargeUpload]:[xp901.sc] [Setting] uploadReadAheadSize => 491520000
+
+[------------------------------------------------------------ CreateHostHeader : HostHeader ------------------------------------------------------------------]
+[CreateHostHeader]:[Backup] Created - C:\Windows\system32\drivers\etc\hosts.backup
+[CreateHostHeader]:[Exists] 127.0.0.1 => xp901.sc
+
+[-------------------------------------------------------------- SetPermissions : FilePermissions -------------------------------------------------------------]
+[SetPermissions]:[Allow] IIS AppPool\xp901.sc
+[SetPermissions]:[Path] C:\inetpub\wwwroot\xp901.sc
+[SetPermissions]:[Rights] FullControl
+[SetPermissions]:[Inherit] ContainerInherit ObjectInherit
+[SetPermissions]:[Propagate] None
+
+[------------------------------------------------------------------ InstallWDP : WebDeploy -------------------------------------------------------------------]
+[WebDeploy]:[Path] C:\Program Files\iis\Microsoft Web Deploy V3\msdeploy.exe
+Info: Updating file (xp901.sc\App_Config\AppSettings.config).
+Info: Updating file (xp901.sc\App_Config\ConnectionStrings.config).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\CreateShardApplicationDatabaseServerLogin.sql).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\CreateShardApplicationDatabaseUser.sql).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\CreateShardManagerApplicationDatabaseUser.sql).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\GrantShardDbPermissions.sql).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\GrantShardMapManagerDbPermissions.sql).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Microsoft.Data.Tools.Schema.Sql.dll).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Microsoft.Data.Tools.Utilities.dll).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data.dll).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.dll).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Microsoft.SqlServer.Dac.dll).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Microsoft.SqlServer.Dac.Extensions.dll).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Microsoft.SqlServer.TransactSql.ScriptDom.dll).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Microsoft.SqlServer.Types.dll).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Serilog.dll).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Serilog.Sinks.File.dll).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Sitecore.Framework.Conditions.dll).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Sitecore.Processing.pools.dacpac).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Sitecore.Xdb.Collection.Database.Sql.Azure.dacpac).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Sitecore.Xdb.Collection.Database.Sql.dacpac).
+Info: Deleting file (xp901.sc\App_data\collectiondeployment\Sitecore.Xdb.Collection.Database.SqlShardingDeploymentTool.exe).
+Info: Deleting directory (xp901.sc\App_data\collectiondeployment).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.EXM.Collection.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.Collection.ContentTesting.Model.Plugins.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.Collection.IndexReaderDisabled.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.Collection.Initialize.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.Collection.Model.Plugins.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.Collection.Web.Controllers.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.Collection.Web.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.CollectionService.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.Service.Plugins.Processing.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.Xdb.Collection.Data.Sql.KeyStoreProviders.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.Xdb.Collection.Data.Sql.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.Xdb.Collection.RepositorySettings.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.Xdb.Processing.Queue.SqlServer.xml).
+Info: Adding file (xp901.sc\App_data\config\sitecore\CollectionSearch\sc.XConnect.CollectionSearch.Initialize.xml).
+Info: Deleting file (xp901.sc\App_data\config\sitecore\CollectionSearch\sc.XConnect.CollectionSearch.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CollectionSearch\sc.Xdb.Collection.IndexReader.AzureSearch.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CollectionSearch\sc.Xdb.Collection.IndexReader.SOLR.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CollectionSearch\sc.Xdb.Collection.WebClient.SOLR.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CoreServices\sc.PerformanceCounters.AppInsights.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CoreServices\sc.PerformanceCounters.DisableCounters.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CoreServices\sc.PerformanceCounters.WindowsSystem.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CoreServices\sc.Serilog.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CoreServices\sc.XConnect.Security.EnforceSSL.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CoreServices\sc.XConnect.Security.EnforceSSLWithCertificateValidation.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CoreServices\sc.Xdb.Sql.Common.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.EXM.ActivityTypes.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.ActivityResultHandlers.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.ActivityServices.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.ActivityTypes.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.ConditionEvaluationService.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.Conditions.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.ConditionServices.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.ContactLoader.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.Locators.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.PlanProcessing.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.PoolFilter.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.Processors.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.ServiceDecorators.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.Workers.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.Engine.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.Initialize.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.Operations.Web.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.Operations.Web.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.Reporting.Web.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.Reporting.Web.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.SqlServer.Initialize.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.SqlServer.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.Service.Plugins.MarketingAutomation.Operations.Web.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.Service.Plugins.MarketingAutomation.Reporting.Web.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.Service.Plugins.MarketingAutomation.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingOperations\sc.Marketing.Operations.EmptyDefinitionFieldLabelResolver.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingOperations\sc.Marketing.Operations.Xdb.ReferenceData.XConnect.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingOperations\sc.Marketing.Taxonomy.XConnect.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingOperations\sc.Marketing.Taxonomy.Xdb.ReferenceData.XConnect.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingOperations\sc.Marketing.XConnect.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Messaging\sc.EXM.Messaging.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Messaging\sc.XConnect.Messaging.Azure.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Messaging\sc.XConnect.Messaging.SqlServer.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Messaging\sc.XConnect.Messaging.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Core.Converters.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Core.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Core.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.Cache.Diagnostics.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.Cache.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.Diagnostics.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.Repository.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.Transport.Diagnostics.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.Transport.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.SqlServer.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.SqlServer.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Web.Controllers.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Web.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Web.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\SearchIndexer\sc.Xdb.Collection.IndexerSettings.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\SearchIndexer\sc.Xdb.Collection.IndexWriter.AzureSearch.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\SearchIndexer\sc.Xdb.Collection.IndexWriter.SOLR.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Segmentation\sc.EXM.Segmentation.Predicates.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Segmentation\sc.XConnect.Segmentation.Predicates.Model.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Segmentation\sc.XConnect.Segmentation.Predicates.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Segmentation\sc.XConnect.Segmentation.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\XConnect\sc.XConnect.Client.xml.disabled).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Newtonsoft.Json.dll).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Newtonsoft.Json.xml).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.XConnect.Diagnostics.dll).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.XConnect.Diagnostics.InstallCounters.exe).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.XConnect.Diagnostics.InstallCounters.exe.config).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.XConnect.Diagnostics.PerformanceCounters.dll).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.XConnect.Service.Counters.json).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.XConnect.Web.Counters.json).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.Xdb.Collection.SqlServer.Counters.json).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.Xdb.MarketingAutomation.Counters.json).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.Xdb.ReferenceData.Counters.json).
+Info: Deleting file (xp901.sc\App_data\gateway.crt).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\App_config).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_config\AppSettings.config).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_config\ConnectionStrings.config).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\Collection).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\Collection\sc.XConnect.Collection.Initialize.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\Collection\sc.Xdb.Collection.Data.Sql.KeyStoreProviders.xml.disabled).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\Collection\sc.Xdb.Collection.Data.Sql.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\Collection\sc.Xdb.Collection.RepositorySettings.xml).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\CollectionSearch).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\CollectionSearch\sc.XConnect.CollectionSearch.Initialize.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\CollectionSearch\sc.Xdb.Collection.IndexReader.AzureSearch.xml.disabled).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\CollectionSearch\sc.Xdb.Collection.IndexReader.SOLR.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\CollectionSearch\sc.Xdb.Collection.WebClient.SOLR.xml).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\CoreServices).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\CoreServices\sc.PerformanceCounters.AppInsights.xml.disabled).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\CoreServices\sc.PerformanceCounters.DisableCounters.xml.disabled).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\CoreServices\sc.PerformanceCounters.WindowsSystem.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\CoreServices\sc.Serilog.AppInsights.xml.disabled).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\CoreServices\sc.Serilog.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\CoreServices\sc.Xdb.Sql.Common.xml).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\SearchIndexer).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\SearchIndexer\sc.XConnect.SearchIndexer.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\SearchIndexer\sc.Xdb.Collection.IndexerSettings.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\SearchIndexer\sc.Xdb.Collection.IndexWriter.AzureSearch.xml.disabled).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Config\Sitecore\SearchIndexer\sc.Xdb.Collection.IndexWriter.SOLR.xml).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Diagnostics).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Diagnostics\Sitecore.Xdb.Collection.Counters.json).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Diagnostics\Sitecore.Xdb.Collection.SqlServer.Counters.json).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Models).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Models\Sitecore.EmailCampaign.XConnectModel, 1.0.json).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Models\Sitecore.XConnect.Collection.Model, 9.0.json).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\App_data\Models\Sitecore.XConnect.ContentTesting.Model, 1.1.json).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\de-DE).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\de-DE\Microsoft.Data.Tools.Schema.Sql.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\de-DE\Microsoft.Data.Tools.Utilities.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\de-DE\Microsoft.SqlServer.Dac.Extensions.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\de-DE\Microsoft.SqlServer.Dac.resources.dll).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\es-ES).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\es-ES\Microsoft.Data.Tools.Schema.Sql.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\es-ES\Microsoft.Data.Tools.Utilities.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\es-ES\Microsoft.SqlServer.Dac.Extensions.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\es-ES\Microsoft.SqlServer.Dac.resources.dll).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\fr-FR).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\fr-FR\Microsoft.Data.Tools.Schema.Sql.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\fr-FR\Microsoft.Data.Tools.Utilities.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\fr-FR\Microsoft.SqlServer.Dac.Extensions.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\fr-FR\Microsoft.SqlServer.Dac.resources.dll).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\it-IT).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\it-IT\Microsoft.Data.Tools.Schema.Sql.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\it-IT\Microsoft.Data.Tools.Utilities.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\it-IT\Microsoft.SqlServer.Dac.Extensions.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\it-IT\Microsoft.SqlServer.Dac.resources.dll).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\ja-JP).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\ja-JP\Microsoft.Data.Tools.Schema.Sql.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\ja-JP\Microsoft.Data.Tools.Utilities.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\ja-JP\Microsoft.SqlServer.Dac.Extensions.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\ja-JP\Microsoft.SqlServer.Dac.resources.dll).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\ko-KR).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\ko-KR\Microsoft.Data.Tools.Schema.Sql.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\ko-KR\Microsoft.Data.Tools.Utilities.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\ko-KR\Microsoft.SqlServer.Dac.Extensions.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\ko-KR\Microsoft.SqlServer.Dac.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.ApplicationInsights.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.ApplicationInsights.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.AspNetCore.Hosting.Abstractions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.AspNetCore.Hosting.Abstractions.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.AspNetCore.Http.Abstractions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.AspNetCore.Http.Abstractions.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.AspNetCore.Http.Features.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.AspNetCore.Http.Features.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Azure.KeyVault.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Azure.KeyVault.WebKey.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Azure.SqlDatabase.ElasticScale.Client.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Data.Tools.Schema.Sql.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Data.Tools.Utilities.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.DotNet.InternalAbstractions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.CommandLineUtils.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.CommandLineUtils.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.Abstractions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.Abstractions.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.Binder.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.Binder.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.CommandLine.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.CommandLine.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.EnvironmentVariables.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.EnvironmentVariables.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.FileExtensions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.FileExtensions.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.Ini.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.Ini.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.Json.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.Json.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.Xml.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Configuration.Xml.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.DependencyInjection.Abstractions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.DependencyInjection.Abstractions.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.DependencyInjection.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.DependencyInjection.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.DependencyModel.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.FileProviders.Abstractions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.FileProviders.Abstractions.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.FileProviders.Physical.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.FileProviders.Physical.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.FileSystemGlobbing.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.FileSystemGlobbing.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Logging.Abstractions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Logging.Abstractions.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Logging.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Logging.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.PlatformAbstractions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.PlatformAbstractions.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Primitives.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Extensions.Primitives.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.IdentityModel.Clients.ActiveDirectory.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.IdentityModel.Clients.ActiveDirectory.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Practices.ServiceLocation.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Practices.ServiceLocation.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Rest.ClientRuntime.Azure.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Rest.ClientRuntime.Azure.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Rest.ClientRuntime.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.Rest.ClientRuntime.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.SqlServer.Dac.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.SqlServer.Dac.Extensions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.SqlServer.Dac.Extensions.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.SqlServer.Dac.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.SqlServer.TransactSql.ScriptDom.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Microsoft.SqlServer.Types.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Newtonsoft.Json.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Newtonsoft.Json.xml).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\pt-BR).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\pt-BR\Microsoft.Data.Tools.Schema.Sql.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\pt-BR\Microsoft.Data.Tools.Utilities.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\pt-BR\Microsoft.SqlServer.Dac.Extensions.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\pt-BR\Microsoft.SqlServer.Dac.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Remotion.Linq.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Remotion.Linq.xml).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\ru-RU).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\ru-RU\Microsoft.Data.Tools.Schema.Sql.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\ru-RU\Microsoft.Data.Tools.Utilities.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\ru-RU\Microsoft.SqlServer.Dac.Extensions.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\ru-RU\Microsoft.SqlServer.Dac.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Serilog.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Serilog.Extensions.Logging.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Serilog.Extensions.Logging.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Serilog.Settings.Configuration.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Serilog.Settings.Configuration.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Serilog.Sinks.ApplicationInsights.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Serilog.Sinks.File.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Serilog.Sinks.File.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Serilog.Sinks.RollingFile.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Serilog.Sinks.RollingFile.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Serilog.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.EmailCampaign.Model.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.EmailCampaign.XConnect.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Framework.Common.Extensions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Framework.Common.Extensions.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Framework.Conditions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Framework.Conditions.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Framework.Configuration.Abstractions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Framework.Configuration.Abstractions.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Framework.Configuration.Common.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Framework.Configuration.Common.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Framework.Configuration.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Framework.Configuration.Extensions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Framework.Configuration.Extensions.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Framework.Configuration.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Nexus.Licensing.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.XConnect.Configuration.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.XConnect.DependencyInjection.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.XConnect.Diagnostics.ApplicationInsights.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.XConnect.Diagnostics.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.XConnect.Diagnostics.PerformanceCounters.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.XConnect.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.XConnect.Logging.Serilog.AppInsights.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.XConnect.Logging.Serilog.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.XConnect.Search.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.XConnect.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Xdb.Collection.Data.SqlServer.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Xdb.Collection.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Xdb.Collection.Search.Azure.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Xdb.Collection.Search.Azure.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Xdb.Collection.Search.Solr.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Xdb.Collection.Search.Solr.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Xdb.Collection.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\Sitecore.Xdb.Sql.Common.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\SolrNet.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\SolrNet.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\System.Collections.NonGeneric.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\System.ComponentModel.Primitives.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\System.ComponentModel.TypeConverter.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\System.Interactive.Async.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\System.Interactive.Async.Providers.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\System.Interactive.Async.Providers.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\System.Interactive.Async.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\System.IO.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\System.Reflection.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\System.Runtime.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\System.Runtime.Extensions.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\System.Runtime.InteropServices.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\System.Text.Encodings.Web.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\System.Text.Encodings.Web.xml).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\XConnectSearchIndexer.exe).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\XConnectSearchIndexer.exe.config).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\zh-CN).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\zh-CN\Microsoft.Data.Tools.Schema.Sql.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\zh-CN\Microsoft.Data.Tools.Utilities.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\zh-CN\Microsoft.SqlServer.Dac.Extensions.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\zh-CN\Microsoft.SqlServer.Dac.resources.dll).
+Info: Adding directory (xp901.sc\App_data\jobs\continuous\IndexWorker\zh-TW).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\zh-TW\Microsoft.Data.Tools.Schema.Sql.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\zh-TW\Microsoft.Data.Tools.Utilities.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\zh-TW\Microsoft.SqlServer.Dac.Extensions.resources.dll).
+Info: Adding file (xp901.sc\App_data\jobs\continuous\IndexWorker\zh-TW\Microsoft.SqlServer.Dac.resources.dll).
+Info: Deleting file (xp901.sc\App_data\jobs\_._).
+Info: Deleting file (xp901.sc\App_data\license.xml).
+Info: Updating file (xp901.sc\App_data\Logs\_._).
+Info: Updating file (xp901.sc\App_data\Models\Sitecore.EmailCampaign.XConnectModel, 1.0.json).
+Info: Updating file (xp901.sc\App_data\Models\Sitecore.XConnect.Collection.Model, 9.0.json).
+Info: Updating file (xp901.sc\App_data\Models\Sitecore.XConnect.ContentTesting.Model, 1.1.json).
+Info: Deleting file (xp901.sc\App_data\root-authority.crt).
+Info: Adding directory (xp901.sc\App_data\solrcommands).
+Info: Adding file (xp901.sc\App_data\solrcommands\schema.json).
+Info: Updating file (xp901.sc\bin\Microsoft.ApplicationInsights.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.ApplicationInsights.XML).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Hosting.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Hosting.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Http.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Http.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Http.Features.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Http.Features.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Azure.KeyVault.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Azure.KeyVault.WebKey.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Azure.SqlDatabase.ElasticScale.Client.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Data.Tools.Schema.Sql.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Data.Tools.Utilities.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.DotNet.InternalAbstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.CommandLineUtils.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.CommandLineUtils.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Binder.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Binder.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.CommandLine.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.CommandLine.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.EnvironmentVariables.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.EnvironmentVariables.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.FileExtensions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.FileExtensions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Ini.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Ini.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Json.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Json.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Xml.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Xml.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.DependencyInjection.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.DependencyInjection.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.DependencyModel.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.FileProviders.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.FileProviders.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.FileProviders.Physical.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.FileProviders.Physical.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.FileSystemGlobbing.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.FileSystemGlobbing.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Logging.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Logging.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Logging.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Logging.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Options.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Options.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.PlatformAbstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.PlatformAbstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Primitives.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Primitives.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.XML).
+Info: Updating file (xp901.sc\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.OData.Core.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.OData.Core.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.OData.Edm.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.OData.Edm.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Practices.ServiceLocation.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Practices.ServiceLocation.XML).
+Info: Updating file (xp901.sc\bin\Microsoft.Rest.ClientRuntime.Azure.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Rest.ClientRuntime.Azure.runtimeconfig.json).
+Info: Updating file (xp901.sc\bin\Microsoft.Rest.ClientRuntime.Azure.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Rest.ClientRuntime.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Rest.ClientRuntime.runtimeconfig.json).
+Info: Updating file (xp901.sc\bin\Microsoft.Rest.ClientRuntime.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.ServiceBus.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.ServiceBus.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Spatial.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Spatial.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.SqlServer.Dac.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.SqlServer.Dac.Extensions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.SqlServer.Dac.Extensions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.SqlServer.Dac.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.SqlServer.TransactSql.ScriptDom.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.SqlServer.Types.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.WindowsAzure.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.WindowsAzure.Configuration.xml).
+Info: Updating file (xp901.sc\bin\Newtonsoft.Json.dll).
+Info: Updating file (xp901.sc\bin\Newtonsoft.Json.xml).
+Info: Updating file (xp901.sc\bin\Rebus.AzureServiceBus.dll).
+Info: Updating file (xp901.sc\bin\Rebus.AzureServiceBus.XML).
+Info: Updating file (xp901.sc\bin\Rebus.dll).
+Info: Updating file (xp901.sc\bin\Rebus.SqlServer.dll).
+Info: Updating file (xp901.sc\bin\Rebus.SqlServer.XML).
+Info: Updating file (xp901.sc\bin\Rebus.XML).
+Info: Updating file (xp901.sc\bin\Remotion.Linq.dll).
+Info: Updating file (xp901.sc\bin\Remotion.Linq.XML).
+Info: Updating file (xp901.sc\bin\Serilog.dll).
+Info: Updating file (xp901.sc\bin\Serilog.Extensions.Logging.dll).
+Info: Updating file (xp901.sc\bin\Serilog.Extensions.Logging.xml).
+Info: Updating file (xp901.sc\bin\Serilog.Settings.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Serilog.Settings.Configuration.xml).
+Info: Updating file (xp901.sc\bin\Serilog.Sinks.ApplicationInsights.dll).
+Info: Updating file (xp901.sc\bin\Serilog.Sinks.File.dll).
+Info: Updating file (xp901.sc\bin\Serilog.Sinks.File.xml).
+Info: Updating file (xp901.sc\bin\Serilog.Sinks.RollingFile.dll).
+Info: Updating file (xp901.sc\bin\Serilog.Sinks.RollingFile.xml).
+Info: Updating file (xp901.sc\bin\Serilog.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.ContentTesting.Model.xConnect.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.EmailCampaign.Activities.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.EmailCampaign.Model.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.EmailCampaign.XConnect.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.Extensions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.Extensions.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.WildcardMatch.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.WildcardMatch.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Conditions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Conditions.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.Common.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.Common.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.Extensions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.Extensions.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Common.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Common.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Configuration.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.Azure.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.Azure.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.Configuration.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.SqlServer.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.SqlServer.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Api.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Api.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Core.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Core.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Model.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Model.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Registry.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Registry.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Serialization.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Serialization.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.Automation.Activity.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.Automation.Models.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.Core.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.Operations.Xdb.ReferenceData.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.Operations.Xdb.ReferenceData.Model.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.Operations.Xdb.ReferenceData.Service.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.Taxonomy.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Nexus.Licensing.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Client.Configuration.XConnect.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Client.Configuration.XConnect.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Client.Configuration.XConnect.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Client.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Client.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Collection.Model.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Collection.Model.Plugins.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Collection.Model.Plugins.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Collection.Model.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.DependencyInjection.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.DependencyInjection.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.DependencyInjection.Web.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.DependencyInjection.Web.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Diagnostics.ApplicationInsights.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Diagnostics.ApplicationInsights.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Diagnostics.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Diagnostics.PerformanceCounters.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Diagnostics.PerformanceCounters.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Logging.Serilog.AppInsights.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Logging.Serilog.AppInsights.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Logging.Serilog.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Logging.Serilog.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Messaging.Azure.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Messaging.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Messaging.SqlServer.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Search.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Security.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Security.Web.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Security.Web.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Segmentation.Conditions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Segmentation.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Segmentation.Engine.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Segmentation.ExpressionBuilder.Model.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Segmentation.Predicates.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Segmentation.Predicates.Model.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.Plugins.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.Plugins.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.Plugins.MarketingAutomation.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.Plugins.MarketingAutomation.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.Plugins.Processing.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.Plugins.Processing.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Web.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.Data.SqlServer.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.Search.Azure.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.Search.Azure.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.Search.Azure.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.Search.Solr.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.Search.Solr.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.Search.Solr.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Common.Web.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Common.Web.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.Core.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.Core.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.SqlServer.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.SqlServer.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.Web.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.Web.XConnect.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.Web.XConnect.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.Web.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Processing.Queue.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Processing.Queue.SqlServer.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Processing.Queue.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Core.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Core.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Service.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Service.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.SqlServer.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.SqlServer.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Web.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Web.XConnect.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Web.XConnect.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Web.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Sql.Common.dll).
+Info: Updating file (xp901.sc\bin\SolrNet.dll).
+Info: Updating file (xp901.sc\bin\SolrNet.xml).
+Info: Updating file (xp901.sc\bin\System.Collections.NonGeneric.dll).
+Info: Updating file (xp901.sc\bin\System.ComponentModel.Primitives.dll).
+Info: Updating file (xp901.sc\bin\System.ComponentModel.TypeConverter.dll).
+Info: Updating file (xp901.sc\bin\System.Interactive.Async.dll).
+Info: Updating file (xp901.sc\bin\System.Interactive.Async.Providers.dll).
+Info: Updating file (xp901.sc\bin\System.Interactive.Async.Providers.xml).
+Info: Updating file (xp901.sc\bin\System.Interactive.Async.xml).
+Info: Updating file (xp901.sc\bin\System.IO.dll).
+Info: Updating file (xp901.sc\bin\System.Net.Http.Formatting.dll).
+Info: Updating file (xp901.sc\bin\System.Net.Http.Formatting.xml).
+Info: Updating file (xp901.sc\bin\System.Reflection.dll).
+Info: Updating file (xp901.sc\bin\System.Runtime.dll).
+Info: Updating file (xp901.sc\bin\System.Runtime.Extensions.dll).
+Info: Updating file (xp901.sc\bin\System.Runtime.InteropServices.dll).
+Info: Updating file (xp901.sc\bin\System.Text.Encodings.Web.dll).
+Info: Updating file (xp901.sc\bin\System.Text.Encodings.Web.xml).
+Info: Updating file (xp901.sc\bin\System.Web.Http.dll).
+Info: Updating file (xp901.sc\bin\System.Web.Http.WebHost.dll).
+Info: Updating file (xp901.sc\bin\System.Web.Http.WebHost.xml).
+Info: Updating file (xp901.sc\bin\System.Web.Http.xml).
+Info: Updating file (xp901.sc\bin\System.Web.OData.dll).
+Info: Updating file (xp901.sc\bin\System.Web.OData.xml).
+Info: Updating file (xp901.sc\Default.aspx).
+Info: Updating file (xp901.sc\Global.asax).
+Info: Updating file (xp901.sc\Messages.resx).
+Info: Updating file (xp901.sc\Web.config).
+Info: Adding ACLs for path (xp901.sc\App_Data\logs)
+Total changes: 639 (233 added, 27 deleted, 379 updated, 0 parameters changed, 87485730 bytes copied)
+
+[------------------------------------------------------------------ SetLicense : Copy ------------------------------------------------------------------------]
+[SetLicense]:[Copying] C:\xp\license.xml => C:\inetpub\wwwroot\xp901.sc\App_Data
+
+[-------------------------------------- CreateBindingsWithDevelopmentThumprint : AddWebFeatureSSL ------------------------------------------------------------]
+
+[---------------------------------------------------------------- StartAppPool : ManageAppPool ---------------------------------------------------------------]
+[StartAppPool]:[Start] xp901.sc
+
+[---------------------------------------------------------------- StartWebsite : ManageWebsite ---------------------------------------------------------------]
+[StartWebsite]:[Start] xp901.sc
+
+[--------------------------------------------- SetServicesCertStorePermissions : FilePermissions -------------------------------------------------------------]
+[SetServicesCertStorePermissions]:[Allow] NT AUTHORITY\LocalService
+[SetServicesCertStorePermissions]:[Path] C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\91b96ebb38a6a60bb219402c518edcbc_ffb0b732-144c-463c-be18-2420269ed3d0
+[SetServicesCertStorePermissions]:[Rights] Read
+[SetServicesCertStorePermissions]:[Inherit] None
+[SetServicesCertStorePermissions]:[Propagate] None
+
+[-------------------------------------------------------- CreateServiceLogPath : EnsurePath ------------------------------------------------------------------]
+[CreateServiceLogPath]:[Create] C:\inetpub\wwwroot\xp901.sc\App_Data\jobs\continuous\IndexWorker\App_Data\Logs
+
+[------------------------------------------------ SetIndexWorkerServiceLicense : Copy ------------------------------------------------------------------------]
+[SetIndexWorkerServiceLicense]:[Copying] C:\xp\license.xml => C:\inetpub\wwwroot\xp901.sc\App_Data\jobs\continuous\IndexWorker\App_Data
+
+[------------------------------------------------------- SetServicePermissions : FilePermissions -------------------------------------------------------------]
+[SetServicePermissions]:[Allow] NT AUTHORITY\LocalService
+[SetServicePermissions]:[Path] C:\inetpub\wwwroot\xp901.sc\App_Data\jobs\continuous\IndexWorker\App_Data\Logs
+[SetServicePermissions]:[Rights] FullControl
+[SetServicePermissions]:[Inherit] ContainerInherit ObjectInherit
+[SetServicePermissions]:[Propagate] None
+
+[-------------------------------------------------------------- InstallService : Command ---------------------------------------------------------------------]
+[Command]:[Path] C:\inetpub\wwwroot\xp901.sc\App_Data\jobs\continuous\IndexWorker\XConnectSearchIndexer.exe
+Installing service xp901.sc-indexworker...
+Service xp901.sc-indexworker has been successfully installed.
+Creating EventLog source xp901.sc-indexworker in log Application...
+
+[---------------------------------------------------------------- StartService : ManageService ---------------------------------------------------------------]
+[StartService]:[Updating] xp901.sc-indexworker
+
+Status   Name               DisplayName
+------   ----               -----------
+Running  xp901.sc-indexw... Sitecore XConnect Search Indexer - ...
+
+
+
+[---------------------------------------------------- ConfigureSolrSchemas [1] : ManageSolrSchema ------------------------------------------------------------]
+[ConfigureSolrSchemas [1]]:[Requesting] https://localhost:8983/solr
+[ConfigureSolrSchemas [1]]:[Schema] Modifying Schema on https://localhost:8983/solr : xp901_xdb
+
+responseHeader
+--------------
+@{status=0; QTime=210}
+
+
+
+[---------------------------------------------------- ConfigureSolrSchemas [2] : ManageSolrSchema ------------------------------------------------------------]
+[ConfigureSolrSchemas [2]]:[Requesting] https://localhost:8983/solr
+[ConfigureSolrSchemas [2]]:[Schema] Modifying Schema on https://localhost:8983/solr : xp901_xdb_rebuild
+
+responseHeader
+--------------
+@{status=0; QTime=165}
+
+
+[TIME] 00:00:11
+**********************
+Windows PowerShell transcript end
+End time: 20180629125309
+**********************

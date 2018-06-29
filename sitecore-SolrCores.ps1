@@ -1,22 +1,23 @@
 #define parameters 
 $Prefix = "xp901" 
 $PSScriptRoot = "c:\xp"
-$Config = "$PSScriptRoot\config"
+$Path = "$PSScriptRoot\config\sitecore-solr.json"
 
 $SolrUrl = "https://localhost:8983/solr" 
 $SolrRoot = "C:\solr-6.6.2" 
 $SolrService = "solr662" 
+$CorePrefix = $Prefix
   
 #install solr cores for sitecore 
-$SitecoreSolrParams = @{     
-    Path = "$Config\sitecore-solr.json"     
+$SolrCoresParams = @{     
+    Path = $Path     
     SolrUrl = $SolrUrl     
     SolrRoot = $SolrRoot     
     SolrService = $SolrService     
-    CorePrefix = $Prefix 
+    CorePrefix = $CorePrefix 
 } 
-Write-Host @SitecoreSolrParams
-Install-SitecoreConfiguration @SitecoreSolrParams -Verbose
+Write-Host @SolrCoresParams
+Install-SitecoreConfiguration @SolrCoresParams -Verbose
 
 <#
 MIT License
