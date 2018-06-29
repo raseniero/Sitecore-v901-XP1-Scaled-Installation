@@ -38,7 +38,7 @@ For each role or instance in *the diagram*, find their respective prerequesites 
 * NSSM 2.24 (installed using Chocolatey)
 * OpenSSL.Light 1.1.0 (installed using Chocolatey)
 
-To setup *Solr* instance see section [Installation->Solr Instance](README.md#solr-instance-1)
+To setup *Solr* instance see section [Installation->Solr Instance](README.md#solr-instance-installation)
 
 ### All Other Instances
 
@@ -78,21 +78,64 @@ This applies to the follwing instances or roles *XConnect*, *xDB Services*, *Con
 sp_configure 'contained database authentication', 1; GO RECONFIGURE; GO
 ```
 
-### Solr Instance/Role Installation
+### Solr Instance Installation
 
-1. Install Chocolatey
-2. Install NSSM using Chocolatey
-3. Install JRE 1.8 using Chocolatey
-4. Install OpenSSL using Chocolatey
-5. Install Solr 6.2.2
-6. Install SSL
+1. Install Chocolatey by runnning the PowerShell script below as Administrator.
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+```
+2. Install NSSM using Chocolatey by running the command below.
+```
+C:\> choco install nssm
+```
+3. Install JRE 1.8 using Chocolatey by running the command below.
+```
+C:\> choco install jre8
+```
+4. Install OpenSSL using Chocolatey by running the command below.
+```
+C:\> choco install openssl.light
+```
+5. Download and install Solr 6.2.2 by following the [Installing Solr](https://lucene.apache.org/solr/guide/6_6/installing-solr.html) guide.
+6. Enable SSL on Solr by following the [Enabling SSL](https://lucene.apache.org/solr/guide/6_6/enabling-ssl.html) guide.
 7. Setup as a Service using NSSM
-8. Edit and run c:\xp\sitecore-SolrCores.ps1 to configure the cores for a Sitecore deployment. if the cores exist, they will be overwritten.
-9. Edit and run c:\xp\xconnect-SolrCores.ps1 to configure the cores for an XConnect deployment. if the cores exist, they will be overwritten.
+8. To install the Sitecore Solr Cores, edit the parameters on the [c:\xp\sitecore-SolrCores.ps1](sitecore-SolrCores.ps1) scripts to match local values.
+```
+#define parameters 
+$Prefix = "xp901" 
+$PSScriptRoot = "c:\xp"
+$Path = "$PSScriptRoot\config\sitecore-solr.json"
+
+$SolrUrl = "https://localhost:8983/solr" 
+$SolrRoot = "C:\solr-6.6.2" 
+$SolrService = "solr662" 
+$CorePrefix = $Prefix
+```
+9. Run c:\xp\sitecore-SolrCores.ps1 <<Press Enter>>
+```
+PS C:\> .\sitecore-SolrCores.ps1 scripts
+```
+>Note: If the cores exist, they will be overwritten.
+10. To install the xConnect Solr Cores, edit the parameters on the [c:\xp\xconnect-SolrCores.ps1](xconnect-SolrCores.ps1) scripts to match local values. 
+```
+#define parameters 
+$Prefix = "xp901" 
+$PSScriptRoot = "c:\xp"
+$ConfigPath = "$PSScriptRoot\config"
+
+$SolrUrl = "https://localhost:8983/solr" 
+$SolrRoot = "C:\solr-6.6.2" 
+$SolrService = "solr662"
+```
+11. Run c:\xp\xconnect-SolrCores.ps1 scripts. 
+```
+PS C:\> .\xconnect-SolrCores.ps1 <<Press Enter>>
+```
+>Note: If the cores exist, they will be overwritten.
 
 ### xConnect Instance Installation
 
-1. To install the xConnect Collection role, edit the parameters for c:\xp\xconnect-xp1-Collection.ps1, they are exposed so its easy to change them for production environment purposes.
+1. To install the xConnect Collection role, edit the parameters for [c:\xp\xconnect-xp1-Collection.ps1](xconnect-xp1-Collection.ps1), they are exposed so its easy to change them for production environment purposes.
 ```
 <#
 Exposed parameters for creating the Collection Service, so you can change it for production
@@ -129,15 +172,15 @@ $XConnectLogLevel = "Information" #Can be Debug
 ```
 2. Run c:\xp\xconnect-xp1-Collection.ps1. 
 ```
-PS C:\xp> .\xconnect-xp1-Collection.ps1 <<Enter>>
+PS C:\xp> .\xconnect-xp1-Collection.ps1 <<Press Enter>>
 ```
 >Note: you can pass -Verbose or -WhatIf parameters to see more information or run the script without making actual changes.
 
 >Note: The script will take about (+/-) 1 minute and 40 seconds to complete execution, see the [xconnect-xp1-collection.log](xconnect-xp1-collection.log) file.
-3. To install the xConnect Collection Search role, edit the parameters for c:\xp\xconnect-xp1-CollectionSearch.ps1 script.
+3. To install the xConnect Collection Search role, edit the parameters for [c:\xp\xconnect-xp1-CollectionSearch.ps1](xconnect-xp1-CollectionSearch.ps1) script.
 ```
 <#
-Exposed parameters for creating the Collection Service, so you can change it for production
+Exposed parameters for creating the Collection Search Service, so you can change it for production
 #>
 $Prefix = "xp901" #This is usually the name of the site
 $PSScriptRoot = "c:\xp" #This is the default destination folder from the git clone, 
@@ -176,32 +219,78 @@ $XConnectLogLevel = "Information" #Use Debug for Development
 >Note: There are not $SqlAdminUser and $SqlAdminPassword parameters but $SolrUrl and $SolrCorePrefix has been added.
 4. Run c:\xp\xconnect-xp1-CollectionSearch.ps1. 
 ```
-PS C:\xp> .\xconnect-xp1-CollectionSearch.ps1 <<Enter>>
+PS C:\xp> .\xconnect-xp1-CollectionSearch.ps1 <<Press Enter>>
 ```
 >Note: The script will take about (+/-) 11 minutes to complete execution, 
 see the [xconnect-xp1-collectionsearch.log](xconnect-xp1-collectionsearch.log) file.
 
 ### xDB Services Instance Installation
 
-1. To install xDB Marketing Automation role, edit and run c:\xp\xconnect-xp1-MarketingAutomation.ps1
-2. To install xDB Marketing Automation Reporting role, edit and run c:\xp\xconnect-xp1-MarketingAutomationReporting.ps1
-3. To install xDB Reference Data role, edit and run c:\xp\xconnect-xp1-ReferenceData.ps1
+1. To install xDB Marketing Automation role, edit [c:\xp\xconnect-xp1-MarketingAutomation.ps1](xconnect-xp1-MarketingAutomation.ps1) scripts to reflect local settings. 
+```
+<#
+Exposed parameters for creating the xDB Marketing Automation role, so you can change it for production
+#>
+$Prefix = "xp901" #This is usually the name of the site
+$PSScriptRoot = "c:\xp" #This is the default destination folder from the git clone, if different then update this to point to the new location.
+$Path = "$PSScriptRoot\config\xconnect-xp1-MarketingAutomation.json"
+
+$Package = "$PSScriptRoot\Sitecore 9.0.1 rev. 171219 (OnPrem)_xp1marketingautomation.scwdp.zip"
+$LicenseFile = "$PSScriptRoot\license.xml" #The Sitecore License.xml file
+$SiteName = "$Prefix.sc" 
+
+$SSLCert = "" #Todo: needs to be provided (applicable for production environment), if not then generated by the script (applicable for development environment).
+$XConnectCert = "$Prefix.xconnect_client"
+
+<#
+The $Prefix, $SqlAdminUser, $SqlAdminPassword and $SqlServer needs to be changes. The rest can use the default (for development environment purposes) but for production it's recommended to be changed.
+#>
+$SqlDbPrefix = $Prefix
+$SqlAdminUser = "sa"
+$SqlAdminPassword = "Test12345"
+$SqlServer = "RAMONASENIE0E1F"
+$SqlCollectionUser = "collectionuser"
+$SqlCollectionPassword = "Test12345"
+$SqlProcessingPoolsUser = "poolsuser"
+$SqlProcessingPoolsPassword = "Test12345"
+$SqlMarketingAutomationUser = "marketingautomationuser"
+$SqlMarketingAutomationPassword = "Test12345"
+$SqlMessagingUser = "messaginguser"
+$SqlMessagingPassword = "Test12345" 
+
+$XConnectCollectionService = "https://XConnectCollection" #Keep this default value unless you know what you're doing
+$XConnectReferenceDataService = "https://XConnectReferenceData" #Keep this default value unless you know what you're doing
+$XConnectEnvironment ="Development" #For production environment use Production
+$XConnectLogLevel = "Information" #Use Debug for Development
+```
+>Note: In comparison to xconnect-xp1-Collection-Search.ps1, the $SqlAdminUser, $SqlAdminPassword, XConnectCollectionService and XConnectReferenceDataService has been added to the parameters.
+2. Execute c:\xp\xconnect-xp1-MarketingAutomation.ps1 scripts.
+```
+PS C:\xp> .\xconnect-xp1-MarketingAutomation.ps1 <<Press Enter>>
+```
+>Note: If the script fails on the first run and you need to rerun it, perform an iisreset in the terminal.
+```
+PS C:\> iisreset
+```
+>Note: The script will take about (+/-) 9 seconds to complete execution, see the [xconnect-xp1-marketingautomation.log](xconnect-xp1-marketingautomation.log) file.
+3. To install xDB Marketing Automation Reporting role, edit and run [c:\xp\xconnect-xp1-MarketingAutomationReporting.ps1](xconnect-xp1-MarketingAutomationReporting.ps1)
+4. To install xDB Reference Data role, edit and run [c:\xp\xconnect-xp1-ReferenceData.ps1](xconnect-xp1-ReferenceData.ps1)
 
 ### Content Management Instance Installation
 
-1. To install Content Management role, edit and run c:\xp\sitecore-xp1-ContentManagement.ps1.
+1. To install Content Management role, edit and run [c:\xp\sitecore-xp1-ContentManagement.ps1](sitecore-xp1-ContentManagement.ps1).
 
 ### Reporting Instance Installation
 
-1. To install Reporting role, edit and run c:\xp\sitecore-xp1-Reporting.ps1.
+1. To install Reporting role, edit and run [c:\xp\sitecore-xp1-Reporting.ps1](sitecore-xp1-Reporting.ps1).
 
 ### Processing Instance Installation
 
-1. To install Processing role, edit and run c:\xp\sitecore-xp1-Processing.ps1.
+1. To install Processing role, edit and run [c:\xp\sitecore-xp1-Processing.ps1](sitecore-xp1-Processing.ps1).
 
 ### Content Delivery Instance Installation
 
-1. To install Content Delivery role, edit and run c:\xp\sitecore-xp1-ContentDelivery.ps1.
+1. To install Content Delivery role, edit and run [c:\xp\sitecore-xp1-ContentDelivery.ps1](sitecore-xp1-ContentDelivery.ps1).
 
 ## Built With
 
