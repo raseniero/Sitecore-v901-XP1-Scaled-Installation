@@ -240,11 +240,11 @@ see the [xconnect-xp1-collectionsearch.log](xconnect-xp1-collectionsearch.log) f
 
 ### Processing Instance Installation
 
-1. To install Processing role, edit and run c:\xp\sitecore-xp1-Processing.ps1.
+1. To install Processing role, edit and run [c:\xp\sitecore-xp1-Processing.ps1](sitecore-xp1-Processing.ps1).
 
 ### Content Delivery Instance Installation
 
-1. To install Content Delivery role, edit and run c:\xp\sitecore-xp1-ContentDelivery.ps1.
+1. To install Content Delivery role, edit and run c:\xp\[sitecore-xp1-ContentDelivery.ps1](sitecore-xp1-ContentDelivery.ps1).
 
 ## Built With
 
