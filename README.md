@@ -127,10 +127,11 @@ $SqlServer = "RAMONASENIE0E1F"
 $XConnectEnvironment ="Development" #For production environment use Production
 $XConnectLogLevel = "Information" #Can be Debug
 ```
-2. Run c:\xp\xconnect-xp1-Collection.ps1. The script will take about (+/-) 1 minute and 40 seconds to complete execution, see the [xconnect-xp1-collection.log](xconnect-xp1-collection.log) file.
+2. Run c:\xp\xconnect-xp1-Collection.ps1. 
 ```
 PS C:\xp> .\xconnect-xp1-Collection.ps1 <<Enter>>
 ```
+>Note: The script will take about (+/-) 1 minute and 40 seconds to complete execution, see the [xconnect-xp1-collection.log](xconnect-xp1-collection.log) file.
 3. Edit and run c:\xp\xconnect-xp1-CollectionSearch.ps1.
 
 ### xDB Services Instance Installation
