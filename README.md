@@ -180,7 +180,7 @@ PS C:\xp> .\xconnect-xp1-Collection.ps1 <<Press Enter>>
 3. To install the xConnect Collection Search role, edit the parameters for [c:\xp\xconnect-xp1-CollectionSearch.ps1](xconnect-xp1-CollectionSearch.ps1) script.
 ```
 <#
-Exposed parameters for creating the Collection Service, so you can change it for production
+Exposed parameters for creating the Collection Search Service, so you can change it for production
 #>
 $Prefix = "xp901" #This is usually the name of the site
 $PSScriptRoot = "c:\xp" #This is the default destination folder from the git clone, 
