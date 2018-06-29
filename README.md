@@ -99,7 +99,7 @@ C:\> choco install openssl.light
 5. Download and install Solr 6.2.2 by following the [Installing Solr](https://lucene.apache.org/solr/guide/6_6/installing-solr.html) guide.
 6. Enable SSL on Solr by following the [Enabling SSL](https://lucene.apache.org/solr/guide/6_6/enabling-ssl.html) guide.
 7. Setup as a Service using NSSM
-8. To install the Sitecore Solr Cores, edit the parameters on the c:\xp\sitecore-SolrCores.ps1 scripts.
+8. To install the Sitecore Solr Cores, edit the parameters on the [c:\xp\sitecore-SolrCores.ps1](sitecore-SolrCores.ps1) scripts to match local values.
 ```
 #define parameters 
 $Prefix = "xp901" 
@@ -116,7 +116,7 @@ $CorePrefix = $Prefix
 PS C:\> .\sitecore-SolrCores.ps1 scripts
 ```
 >Note: If the cores exist, they will be overwritten.
-10. To install the xConnect Solr Cores, edit the parameters on the c:\xp\xconnect-SolrCores.ps1 scripts. 
+10. To install the xConnect Solr Cores, edit the parameters on the [c:\xp\xconnect-SolrCores.ps1](xconnect-SolrCores.ps1) scripts to match local values. 
 ```
 #define parameters 
 $Prefix = "xp901" 
@@ -135,7 +135,7 @@ PS C:\> .\xconnect-SolrCores.ps1 <<Press Enter>>
 
 ### xConnect Instance Installation
 
-1. To install the xConnect Collection role, edit the parameters for c:\xp\xconnect-xp1-Collection.ps1, they are exposed so its easy to change them for production environment purposes.
+1. To install the xConnect Collection role, edit the parameters for [c:\xp\xconnect-xp1-Collection.ps1](xconnect-xp1-Collection.ps1), they are exposed so its easy to change them for production environment purposes.
 ```
 <#
 Exposed parameters for creating the Collection Service, so you can change it for production
@@ -177,7 +177,7 @@ PS C:\xp> .\xconnect-xp1-Collection.ps1 <<Press Enter>>
 >Note: you can pass -Verbose or -WhatIf parameters to see more information or run the script without making actual changes.
 
 >Note: The script will take about (+/-) 1 minute and 40 seconds to complete execution, see the [xconnect-xp1-collection.log](xconnect-xp1-collection.log) file.
-3. To install the xConnect Collection Search role, edit the parameters for c:\xp\xconnect-xp1-CollectionSearch.ps1 script.
+3. To install the xConnect Collection Search role, edit the parameters for [c:\xp\xconnect-xp1-CollectionSearch.ps1](xconnect-xp1-CollectionSearch.ps1) script.
 ```
 <#
 Exposed parameters for creating the Collection Service, so you can change it for production
@@ -226,17 +226,17 @@ see the [xconnect-xp1-collectionsearch.log](xconnect-xp1-collectionsearch.log) f
 
 ### xDB Services Instance Installation
 
-1. To install xDB Marketing Automation role, edit and run c:\xp\xconnect-xp1-MarketingAutomation.ps1
-2. To install xDB Marketing Automation Reporting role, edit and run c:\xp\xconnect-xp1-MarketingAutomationReporting.ps1
-3. To install xDB Reference Data role, edit and run c:\xp\xconnect-xp1-ReferenceData.ps1
+1. To install xDB Marketing Automation role, edit and run [c:\xp\xconnect-xp1-MarketingAutomation.ps1](xconnect-xp1-MarketingAutomation.ps1)
+2. To install xDB Marketing Automation Reporting role, edit and run [c:\xp\xconnect-xp1-MarketingAutomationReporting.ps1](xconnect-xp1-MarketingAutomationReporting.ps1)
+3. To install xDB Reference Data role, edit and run [c:\xp\xconnect-xp1-ReferenceData.ps1](xconnect-xp1-ReferenceData.ps1)
 
 ### Content Management Instance Installation
 
-1. To install Content Management role, edit and run c:\xp\sitecore-xp1-ContentManagement.ps1.
+1. To install Content Management role, edit and run [c:\xp\sitecore-xp1-ContentManagement.ps1](sitecore-xp1-ContentManagement.ps1).
 
 ### Reporting Instance Installation
 
-1. To install Reporting role, edit and run c:\xp\sitecore-xp1-Reporting.ps1.
+1. To install Reporting role, edit and run [c:\xp\sitecore-xp1-Reporting.ps1](sitecore-xp1-Reporting.ps1).
 
 ### Processing Instance Installation
 
