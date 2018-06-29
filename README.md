@@ -78,7 +78,7 @@ This applies to the follwing instances or roles *XConnect*, *xDB Services*, *Con
 sp_configure 'contained database authentication', 1; GO RECONFIGURE; GO
 ```
 
-### Solr Instance Installation
+### Solr Instance/Role Installation
 
 1. Install Chocolatey
 2. Install NSSM using Chocolatey
@@ -92,7 +92,7 @@ sp_configure 'contained database authentication', 1; GO RECONFIGURE; GO
 
 ### xConnect Instance Installation
 
-1. Edit the parameters for c:\xp\xconnect-xp1-Collection.ps1, they are exposed so its easy to change them for production environment purposes.
+1. To install the xConnect Collection role, edit the parameters for c:\xp\xconnect-xp1-Collection.ps1, they are exposed so its easy to change them for production environment purposes.
 ```
 <#
 Exposed parameters for creating the Collection Service, so you can change it for production
@@ -131,8 +131,10 @@ $XConnectLogLevel = "Information" #Can be Debug
 ```
 PS C:\xp> .\xconnect-xp1-Collection.ps1 <<Enter>>
 ```
+>Note: you can pass -Verbose or -WhatIf parameters to see more information or run the script without making actual changes.
+
 >Note: The script will take about (+/-) 1 minute and 40 seconds to complete execution, see the [xconnect-xp1-collection.log](xconnect-xp1-collection.log) file.
-3. Edit the parameters for c:\xp\xconnect-xp1-CollectionSearch.ps1 script.
+3. To install the xConnect Collection Search role, edit the parameters for c:\xp\xconnect-xp1-CollectionSearch.ps1 script.
 ```
 <#
 Exposed parameters for creating the Collection Service, so you can change it for production
@@ -171,7 +173,7 @@ $SolrUrl = "https://localhost:8983/solr" #Change to reflect the production Solr 
 $XConnectEnvironment ="Development" #For production environment use Production
 $XConnectLogLevel = "Information" #Use Debug for Development
 ```
->Note: There are not $SqlAdminUser and $SqlAdminPassword parameters.
+>Note: There are not $SqlAdminUser and $SqlAdminPassword parameters but $SolrUrl and $SolrCorePrefix has been added.
 4. Run c:\xp\xconnect-xp1-CollectionSearch.ps1. 
 ```
 PS C:\xp> .\xconnect-xp1-CollectionSearch.ps1 <<Enter>>
@@ -181,25 +183,25 @@ see the [xconnect-xp1-collectionsearch.log](xconnect-xp1-collectionsearch.log) f
 
 ### xDB Services Instance Installation
 
-1. Edit and run c:\xp\xconnect-xp1-MarketingAutomation.ps1
-2. Edit and run c:\xp\xconnect-xp1-MarketingAutomationReporting.ps1
-3. Edit and run c:\xp\xconnect-xp1-ReferenceData.ps1
+1. To install xDB Marketing Automation role, edit and run c:\xp\xconnect-xp1-MarketingAutomation.ps1
+2. To install xDB Marketing Automation Reporting role, edit and run c:\xp\xconnect-xp1-MarketingAutomationReporting.ps1
+3. To install xDB Reference Data role, edit and run c:\xp\xconnect-xp1-ReferenceData.ps1
 
 ### Content Management Instance Installation
 
-1. Edit and run c:\xp\sitecore-xp1-ContentManagement.ps1.
+1. To install Content Management role, edit and run c:\xp\sitecore-xp1-ContentManagement.ps1.
 
 ### Reporting Instance Installation
 
-1. Edit and run c:\xp\sitecore-xp1-Reporting.ps1.
+1. To install Reporting role, edit and run c:\xp\sitecore-xp1-Reporting.ps1.
 
 ### Processing Instance Installation
 
-1. Edit and run c:\xp\sitecore-xp1-Processing.ps1.
+1. To install Processing role, edit and run c:\xp\sitecore-xp1-Processing.ps1.
 
 ### Content Delivery Instance Installation
 
-1. Edit and run c:\xp\sitecore-xp1-ContentDelivery.ps1.
+1. To install Content Delivery role, edit and run c:\xp\sitecore-xp1-ContentDelivery.ps1.
 
 ## Built With
 
