@@ -272,7 +272,7 @@ PS C:\xp> .\xconnect-xp1-MarketingAutomation.ps1 <<Press Enter>>
 ```
 PS C:\> iisreset
 ```
->Note: The script will take about (+/-) 9 seconds to complete execution, see the [xconnect-xp1-marketingautomation.log](xconnect-xp1-marketingautomation.log) file.
+>Note: The script will take about (+/-) 9 seconds to complete execution, see the [xconnect-xp1-MarketingAutomation.log](xconnect-xp1-MarketingAutomation.log) file.
 3. To install xDB Marketing Automation Reporting role, edit and run [c:\xp\xconnect-xp1-MarketingAutomationReporting.ps1](xconnect-xp1-MarketingAutomationReporting.ps1)
 4. To install xDB Reference Data role, edit and run [c:\xp\xconnect-xp1-ReferenceData.ps1](xconnect-xp1-ReferenceData.ps1)
 
