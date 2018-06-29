@@ -111,7 +111,7 @@ $SolrRoot = "C:\solr-6.6.2"
 $SolrService = "solr662" 
 $CorePrefix = $Prefix
 ```
-9. Run c:\xp\sitecore-SolrCores.ps1 scripts <<Enter>>
+9. Run c:\xp\sitecore-SolrCores.ps1 <<Press Enter>>
 ```
 PS C:\> .\sitecore-SolrCores.ps1 scripts
 ```
@@ -129,7 +129,7 @@ $SolrService = "solr662"
 ```
 11. Run c:\xp\xconnect-SolrCores.ps1 scripts. 
 ```
-PS C:\> .\xconnect-SolrCores.ps1 scripts <<Enter>>
+PS C:\> .\xconnect-SolrCores.ps1 <<Press Enter>>
 ```
 >Note: If the cores exist, they will be overwritten.
 
@@ -172,7 +172,7 @@ $XConnectLogLevel = "Information" #Can be Debug
 ```
 2. Run c:\xp\xconnect-xp1-Collection.ps1. 
 ```
-PS C:\xp> .\xconnect-xp1-Collection.ps1 <<Enter>>
+PS C:\xp> .\xconnect-xp1-Collection.ps1 <<Press Enter>>
 ```
 >Note: you can pass -Verbose or -WhatIf parameters to see more information or run the script without making actual changes.
 
@@ -219,7 +219,7 @@ $XConnectLogLevel = "Information" #Use Debug for Development
 >Note: There are not $SqlAdminUser and $SqlAdminPassword parameters but $SolrUrl and $SolrCorePrefix has been added.
 4. Run c:\xp\xconnect-xp1-CollectionSearch.ps1. 
 ```
-PS C:\xp> .\xconnect-xp1-CollectionSearch.ps1 <<Enter>>
+PS C:\xp> .\xconnect-xp1-CollectionSearch.ps1 <<Press Enter>>
 ```
 >Note: The script will take about (+/-) 11 minutes to complete execution, 
 see the [xconnect-xp1-collectionsearch.log](xconnect-xp1-collectionsearch.log) file.
