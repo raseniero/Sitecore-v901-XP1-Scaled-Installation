@@ -80,15 +80,58 @@ sp_configure 'contained database authentication', 1; GO RECONFIGURE; GO
 
 ### Solr Instance/Role Installation
 
-1. Install Chocolatey
-2. Install NSSM using Chocolatey
-3. Install JRE 1.8 using Chocolatey
-4. Install OpenSSL using Chocolatey
-5. Install Solr 6.2.2
-6. Install SSL
+1. Install Chocolatey by runnning the PowerShell script below as Administrator.
+```
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+```
+2. Install NSSM using Chocolatey by running the command below.
+```
+C:\> choco install nssm
+```
+3. Install JRE 1.8 using Chocolatey by running the command below.
+```
+C:\> choco install jre8
+```
+4. Install OpenSSL using Chocolatey by running the command below.
+```
+C:\> choco install openssl.light
+```
+5. Download and install Solr 6.2.2 by following the [Installing Solr](https://lucene.apache.org/solr/guide/6_6/installing-solr.html) guide.
+6. Enable SSL on Solr by following the [Enabling SSL](https://lucene.apache.org/solr/guide/6_6/enabling-ssl.html) guide.
 7. Setup as a Service using NSSM
-8. Edit and run c:\xp\sitecore-SolrCores.ps1 to configure the cores for a Sitecore deployment. if the cores exist, they will be overwritten.
-9. Edit and run c:\xp\xconnect-SolrCores.ps1 to configure the cores for an XConnect deployment. if the cores exist, they will be overwritten.
+8. To install the Sitecore Solr Cores, edit the parameters on the c:\xp\sitecore-SolrCores.ps1 scripts.
+```
+#define parameters 
+$Prefix = "xp901" 
+$PSScriptRoot = "c:\xp"
+$Path = "$PSScriptRoot\config\sitecore-solr.json"
+
+$SolrUrl = "https://localhost:8983/solr" 
+$SolrRoot = "C:\solr-6.6.2" 
+$SolrService = "solr662" 
+$CorePrefix = $Prefix
+```
+9. Run c:\xp\sitecore-SolrCores.ps1 scripts <<Enter>>
+```
+PS C:\> .\sitecore-SolrCores.ps1 scripts
+```
+>Note: If the cores exist, they will be overwritten.
+10. To install the xConnect Solr Cores, edit the parameters on the c:\xp\xconnect-SolrCores.ps1 scripts. 
+```
+#define parameters 
+$Prefix = "xp901" 
+$PSScriptRoot = "c:\xp"
+$ConfigPath = "$PSScriptRoot\config"
+
+$SolrUrl = "https://localhost:8983/solr" 
+$SolrRoot = "C:\solr-6.6.2" 
+$SolrService = "solr662"
+```
+11. Run c:\xp\xconnect-SolrCores.ps1 scripts. 
+```
+PS C:\> .\xconnect-SolrCores.ps1 scripts <<Enter>>
+```
+>Note: If the cores exist, they will be overwritten.
 
 ### xConnect Instance Installation
 
