@@ -3,8 +3,8 @@ Exposed parameters for creating the Collection Service, so you can change it for
 #>
 $Prefix = "xp901" #This is usually the name of the site
 $PSScriptRoot = "c:\xp" #This is the default destination folder from the git clone, if different then update this to point to the new location.
-
 $Path = "$PSScriptRoot\config\xconnect-xp1-collection.json"
+
 $Package = "$PSScriptRoot\Sitecore 9.0.1 rev. 171219 (OnPrem)_xp1collection.scwdp.zip"
 $LicenseFile = "$PSScriptRoot\license.xml" #The Sitecore License.xml file
 $SiteName = "$Prefix.sc" 
@@ -18,6 +18,7 @@ The $Prefix, $SqlAdminUser, $SqlAdminPassword and $SqlServer needs to be changes
 $SqlDbPrefix = $Prefix
 $SqlAdminUser = "sa" 
 $SqlAdminPassword="jajnav5@" 
+$SqlServer = "RAMONASENIE0E1F"
 $SqlCollectionUser = "collectionuser"
 $SqlCollectionPassword = "Test12345"
 $SqlProcessingPoolsUser = "poolsuser"
@@ -25,14 +26,13 @@ $SqlProcessingPoolsPassword = "Test12345"
 $SqlMarketingAutomationUser = "marketingautomationuser"
 $SqlMarketingAutomationPassword = "Test12345"
 $SqlMessagingUser = "messaginguser"
-$SqlMessagingPassword = "Test12345"
-$SqlServer = "RAMONASENIE0E1F" 
+$SqlMessagingPassword = "Test12345" 
 
 $XConnectEnvironment ="Development" #For production environment use Production
 $XConnectLogLevel = "Information" #Can be Debug
 
 #install xConnect Collection role 
-$XConnectCollectionParams = @{     
+$CollectionParams = @{     
     Path = $Path  
     Package = $Package     
     LicenseFile = $LicenseFile
@@ -54,8 +54,8 @@ $XConnectCollectionParams = @{
     XConnectEnvironment = $XConnectEnvironment
     XConnectLogLevel = $XConnectLogLevel             
 } 
-Write-Host @XConnectCollectionParams
-Install-SitecoreConfiguration @XConnectCollectionParams -Verbose
+Write-Host @CollectionParams
+Install-SitecoreConfiguration @CollectionParams
 
 <#
 MIT License

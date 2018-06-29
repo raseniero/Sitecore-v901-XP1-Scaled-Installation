@@ -1,5 +1,5 @@
 <#
-Exposed parameters for creating the Collection Service, so you can change it for production
+Exposed parameters for creating the Collection Search Service, so you can change it for production
 #>
 $Prefix = "xp901" #This is usually the name of the site
 $PSScriptRoot = "c:\xp" #This is the default destination folder from the git clone, if different then update this to point to the new location.
@@ -16,6 +16,7 @@ $XConnectCert = "$Prefix.xconnect_client"
 The $Prefix, $SqlAdminUser, $SqlAdminPassword and $SqlServer needs to be changes. The rest can use the default (for development environment purposes) but for production it's recommended to be changed.
 #>
 $SqlDbPrefix = $Prefix
+$SqlServer = "RAMONASENIE0E1F"
 $SqlCollectionUser = "collectionuser"
 $SqlCollectionPassword = "Test12345"
 $SqlProcessingPoolsUser = "poolsuser"
@@ -23,8 +24,7 @@ $SqlProcessingPoolsPassword = "Test12345"
 $SqlMarketingAutomationUser = "marketingautomationuser"
 $SqlMarketingAutomationPassword = "Test12345"
 $SqlMessagingUser = "messaginguser"
-$SqlMessagingPassword = "Test12345"
-$SqlServer = "RAMONASENIE0E1F" 
+$SqlMessagingPassword = "Test12345" 
 
 $SolrCorePrefix = $Prefix
 $SolrUrl = "https://localhost:8983/solr" #Change to reflect the production Solr Url
@@ -32,6 +32,7 @@ $SolrUrl = "https://localhost:8983/solr" #Change to reflect the production Solr 
 $XConnectEnvironment ="Development" #For production environment use Production
 $XConnectLogLevel = "Information" #Use Debug for Development
 
+#Install xConnect Collection Search Role
 $CollectionSearchParams = @{     
     Path = $Path  
     Package = $Package     
