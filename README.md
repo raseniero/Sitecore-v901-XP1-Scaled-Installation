@@ -371,7 +371,7 @@ $XConnectLogLevel = "Information" #Use Debug for Development
 ```
 PS C:\> .\xconnect-xp1-ReferenceData.ps1 <<Press Enter>>
 ```
->Note: The script will take about (+/-) 29 seconds to complete execution, see the [xconnect-xp1-xconnect-xp1-ReferenceData.log](xconnect-xp1-ReferenceData.log) file.
+>Note: The script will take about (+/-) 29 seconds to complete execution, see the [xconnect-xp1-ReferenceData.log](xconnect-xp1-ReferenceData.log) file.
 
 ### Reporting Instance Installation
 
