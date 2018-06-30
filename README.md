@@ -356,7 +356,7 @@ The $Prefix, $SqlAdminUser, $SqlAdminPassword and $SqlServer needs to be changes
 $SqlDbPrefix = $Prefix
 $SqlServer = "RAMONASENIE0E1F"
 $SqlAdminUser = "sa"
-$SqlAdminPassword = "jajnav5@"
+$SqlAdminPassword = "Test12345"
 $SqlReferenceDataUser = "referencedatauser"
 $SqlReferenceDataPassword = "Test12345"
 
