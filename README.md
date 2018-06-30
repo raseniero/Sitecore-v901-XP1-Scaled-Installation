@@ -532,7 +532,7 @@ $TelerikEncryptionKey = "PutYourCustomEncryptionKeyHereFrom32To256CharactersLong
 ```
 PS C:\>.\sitecore-xp1-ContentManagement.ps1 <<Press Enter>>
 ```
->Note: The script will take about (+/-) 1 minute 13 seconds to complete execution, see the [sitecore-XP1-cm.log](sitecore-XP1-cm.log) file.
+>Note: The script will take about (+/-) 3 minute 46 seconds to complete execution, see the [sitecore-XP1-cm.log](sitecore-XP1-cm.log) file.
 
 ### Content Delivery Instance Installation
 
