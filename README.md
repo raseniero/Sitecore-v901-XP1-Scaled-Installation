@@ -46,7 +46,10 @@ This includes *XConnect*, *xDB Services*, *Content Management*, *Content Deliver
 
 * Refer to the *general prerequisites* for applicable prerequisites
 * Add IIS role with IIS Management Console feature
-* Add .Net Framework 4.6 feature
+* Add .Net Extensibility 4.6 feature, under Web Server (IIS)->Web Server->Application Development
+```
+PS C:\>Install-WindowsFeatures Web-Asp-Net45
+```
 * Microsoft Visual C++ 2015 Redistributable (vc_redist.x64.exe)
 * Web Platform Installer 5.0 (WebPlatformInstaller_amd64_en-US.msi)
 * Web Deploy 3.6 for Hosting Servers using Web Platform Installer
