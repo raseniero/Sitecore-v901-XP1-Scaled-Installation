@@ -37,14 +37,14 @@ $SqlProcessingTasksPassword = "Test12345"
 $SolrCorePrefix = $Prefix
 $SolrUrl = "https://localhost:8983/solr" 
 
-$XConnectCollectionService = "https://$Prefix.xconnectcollection"
+$XConnectCollectionService = "https://$Prefix.collection"
 $ReportingServiceApiKey = "abcde111112222233333444445555566"
 
 #Configure Processing role
 $ProcessingParams = @{     
     Path = $Path
     Package = $Package     
-    LicenseFile = "$PSScriptRoot\license.xml"   
+    LicenseFile = $LicenseFile   
     XConnectCert = $XConnectCert  
     SSLCert = $SSLCert
     SqlDbPrefix = $Prefix
@@ -72,7 +72,7 @@ $ProcessingParams = @{
     ReportingServiceApiKey = $ReportingServiceApiKey
 } 
 Write-Host @ProcessingParams
-Install-SitecoreConfiguration @ProcessingParams -Verbose
+Install-SitecoreConfiguration @ProcessingParams
 
 <#
 MIT License

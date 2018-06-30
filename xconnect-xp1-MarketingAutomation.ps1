@@ -28,8 +28,8 @@ $SqlMarketingAutomationPassword = "Test12345"
 $SqlMessagingUser = "messaginguser"
 $SqlMessagingPassword = "Test12345" 
 
-$XConnectCollectionService = "https://XConnectCollection" #Keep this default value unless you know what you're doing
-$XConnectReferenceDataService = "https://XConnectReferenceData" #Keep this default value unless you know what you're doing
+$XConnectCollectionService = "https://$Prefix.collectionservice" #Url to the Collection Service
+$XConnectReferenceDataService = "https://$Prefix.referencedata" #Url to the ReferenceData Service
 $XConnectEnvironment ="Development" #For production environment use Production
 $XConnectLogLevel = "Information" #Use Debug for Development
 
