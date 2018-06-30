@@ -536,7 +536,54 @@ PS C:\>.\sitecore-xp1-ContentManagement.ps1 <<Press Enter>>
 
 ### Content Delivery Instance Installation
 
-1. To install Content Delivery role, edit and run [c:\xp\sitecore-xp1-ContentDelivery.ps1](sitecore-xp1-ContentDelivery.ps1).
+1. To install Content Delivery role, edit the parameters in [c:\xp\sitecore-xp1-ContentDelivery.ps1](sitecore-xp1-ContentDelivery.ps1) script.
+```
+<#
+Exposed parameters for creating the Content Delivery Role, so you can change it for production
+#>
+$Prefix = "xp901" #This is usually the name of the site
+$PSScriptRoot = "c:\xp" #This is the default destination folder from the git clone, if different then update this to point to the new location.
+$Path = "$PSScriptRoot\config\sitecore-XP1-cd.json"
+
+$Package = "$PSScriptRoot\Sitecore 9.0.1 rev. 171219 (OnPrem)_cd.scwdp.zip"
+$LicenseFile = "$PSScriptRoot\license.xml" #The Sitecore License.xml file
+$SiteName = "$Prefix.contentdelivery" 
+
+$XConnectCert = "$Prefix.xconnect_client"
+
+<#
+The $Prefix, $SqlAdminUser, $SqlAdminPassword and $SqlServer needs to be changes. The rest can use the default values (for development environment purposes) but for production it's recommended to be changed.
+#>
+$SqlDbPrefix = $Prefix
+$SqlServer = "RAMONASENIE0E1F"
+$SqlCoreUser = "coreuser"
+$SqlCorePassword = "Test12345"
+$SqlWebUser = "webuser"
+$SqlWebPassword = "Test12345"
+$SqlFormsUser = "formsuser"
+$SqlFormsPassword = "Test12345"
+$SqlExmMasterUser = "exmmasteruser"
+$SqlExmMasterPassword = "Test12345"
+$SqlMessagingUser = "messaginguser"
+$SqlMessagingPassword = "Test12345" 
+
+$SolrCorePrefix = $Prefix
+$SolrUrl = "https://localhost:8983/solr" 
+
+$XConnectCollectionService = "https://$Prefix.collection"
+$XConnectReferenceDataService = "https://$Prefix.referencedata"
+
+$MarketingAutomationOperationsService = "https://$Prefix.marketingautomation"
+$MarketingAutomationReportingService = "https://$Prefix.marketingautomationreporting"
+
+$EXMCryptographicKey = "0x0000000000000000000000000000000000000000000000000000000000000000"
+$EXMAuthenticationKey = "0x0000000000000000000000000000000000000000000000000000000000000000"
+```
+2. Execute c:\xp\sitecore-xp1-ContentDelivery.ps1 script
+```
+PS C:\>.\sitecore-xp1-ContentDelivery.ps1 <<Press Enter>>
+```
+>Note: The script will take about (+/-) 13 seconds to complete execution, see the [sitecore-XP1-cd.log](sitecore-XP1-cd.log) file.
 
 ## Built With
 
