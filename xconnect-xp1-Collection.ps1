@@ -31,7 +31,7 @@ $SqlMessagingPassword = "Test12345"
 $XConnectEnvironment ="Development" #For production environment use Production
 $XConnectLogLevel = "Information" #Can be Debug
 
-#install xConnect Collection role 
+#Configure xConnect Collection role 
 $CollectionParams = @{     
     Path = $Path  
     Package = $Package     

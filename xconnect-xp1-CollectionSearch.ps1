@@ -32,7 +32,7 @@ $SolrUrl = "https://localhost:8983/solr" #Change to reflect the production Solr 
 $XConnectEnvironment ="Development" #For production environment use Production
 $XConnectLogLevel = "Information" #Use Debug for Development
 
-#Install xConnect Collection Search Role
+#Configure xConnect Collection Search role
 $CollectionSearchParams = @{     
     Path = $Path  
     Package = $Package     

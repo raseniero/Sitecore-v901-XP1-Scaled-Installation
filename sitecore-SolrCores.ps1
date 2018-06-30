@@ -8,7 +8,7 @@ $SolrRoot = "C:\solr-6.6.2"
 $SolrService = "solr662" 
 $CorePrefix = $Prefix
   
-#install solr cores for sitecore 
+#Configure Sitecore Solr Cores
 $SolrCoresParams = @{     
     Path = $Path     
     SolrUrl = $SolrUrl     

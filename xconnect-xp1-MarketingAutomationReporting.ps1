@@ -25,7 +25,7 @@ $SqlMarketingAutomationPassword = "Test12345"
 $XConnectEnvironment ="Development" #For production environment use Production
 $XConnectLogLevel = "Information" #Use Debug for Development
   
-#install sitecore instance 
+#Configure Marketing Automation Reporting role 
 $xconnectHostName = "$Prefix.xconnect" 
 $MarketingAutomationReportingParams = @{     
     Path = $Path  

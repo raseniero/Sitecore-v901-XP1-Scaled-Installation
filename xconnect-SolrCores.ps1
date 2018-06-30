@@ -7,7 +7,7 @@ $SolrUrl = "https://localhost:8983/solr"
 $SolrRoot = "C:\solr-6.6.2" 
 $SolrService = "solr662" 
  
-#install solr cores for xdb 
+#Configure xConnect Solr Cores 
 $XConnectSolrParams = @{     
     Path = "$ConfigPath\xconnect-solr.json"     
     SolrUrl = $SolrUrl     

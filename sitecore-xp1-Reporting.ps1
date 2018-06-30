@@ -29,7 +29,7 @@ $SqlReportingPassword = "Test12345"
 
 $ReportingServiceApiKey = "abcde111112222233333444445555566"
 
-#Install Reporting Instance
+#Configure Reporting role
 $ContentManagementParams = @{     
     Path = $Path
     Package = $Package     

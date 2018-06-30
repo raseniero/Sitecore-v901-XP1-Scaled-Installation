@@ -33,7 +33,7 @@ $XConnectReferenceDataService = "https://XConnectReferenceData" #Keep this defau
 $XConnectEnvironment ="Development" #For production environment use Production
 $XConnectLogLevel = "Information" #Use Debug for Development
 
-#Install xDB Marketing Automation
+#Configure xDB Marketing Automation role
 $MarketingAutomationParams = @{     
     Path = $Path  
     Package = $Package     

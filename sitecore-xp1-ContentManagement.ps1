@@ -56,7 +56,7 @@ $EXMCryptographicKey = ""
 $EXMAuthenticationKey = ""
 $TelerikEncryptionKey = ""
 
-#Install Instance
+#Configure Content Management role
 $ContentManagementParams = @{     
     Path = $Path
     Package = $Package     
