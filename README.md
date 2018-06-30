@@ -1,14 +1,14 @@
 # Sitecore XP1 Scaled (On-Premise) Installation Notes
 
-This is a guide or a reference for installing Sitecore 9.0 in a fully scaled on-premise environment.
+This is a guide or a reference for installing Sitecore XP1 v9.0 in a fully scaled on-premise environment.
 
->Note: This documentation is still a **work-in-progress**, do expect constant updates. For questions or you need elaboration please send an email to *rasenieroAtGmailDotCom*.
+>Note: This documentation is still a **work-in-progress**, do expect constant updates. For questions or need elaboration please send an email to *rasenieroAtGmailDotCom*.
 
 ## Getting Started
 
-These instructions will serve as a guide or a reference for deploying Sitecore 9.0 in a fully scaled on-premise environment. 
+These instructions will serve as a guide or a reference for deploying Sitecore XP1 v9.0 in a fully scaled on-premise environment. 
 
-In the following scenario below, every core role and XP service role is performed by a dedicated server. This is a pre-built topology and is also known as XP1 Scaled. However, roles can be combine into a single instance, e.g. all Solr roles (i.e. xDB and CMS Solr Cores) can be installed in a single Solr instance. 
+In the following scenario below, every core roles and XP service roles is performed by a dedicated server. This is a pre-built topology and is also known as XP1 Scaled. However, roles can be combine into a single instance, e.g. all xConnect and xDB roles (i.e. Collection, Collection Service, Marketing Automation, Marketing Automation Reporting, and ReferenceData) can be installed in a single instance. 
 
 We will be referencing *the diagram* below in our instructions to come.
 
@@ -16,7 +16,7 @@ We will be referencing *the diagram* below in our instructions to come.
 
 ## Prerequisites
 
-Depending on the role or instance, each has it's own respective software prerequisites, but the *general prerequisites* are the following below.
+Depending on the role or instance, each has it's own respective prerequisites, but the *general prerequisites* are enumerated below.
 
 * Microsoft Windows Server 2016
 * Microsoft SQL Server 2016 SP1 with SQL Management Studio 2017 for Database server
