@@ -60,7 +60,7 @@ PS C:\>Install-WindowsFeatures Web-Asp-Net45
 
 ## Installation 
 
-The general approach is to start with setting up *Solr* instance then followed by *XConnect*, *xDB Services*, *Content Management*, *Content Delivery*, *Processing* and *Reporting* instances.
+The general approach is to start with setting up *Solr* instance then followed by *XConnect (i.e. Collection, CollectionSearch roles)*, *xDB Services (i.e. ReferenceData, MarketingAutomationReporting, MarketingAutomation roles)*, *Reporting*, *Processing*, *Content Management*, and *Content Delivery* instances.
 
 ### General Installation
 
