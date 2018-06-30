@@ -1,0 +1,645 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20180629175328
+Username: RAMONASENIE0E1F\ras
+RunAs User: RAMONASENIE0E1F\ras
+Machine: RAMONASENIE0E1F (Microsoft Windows NT 10.0.14393.0)
+Host Application: C:\Windows\system32\WindowsPowerShell\v1.0\PowerShell_ISE.exe
+Process ID: 856
+PSVersion: 5.1.14393.1884
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.14393.1884
+BuildVersion: 10.0.14393.1884
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\xp\xconnect-xp1-ReferenceData.180629.log
+                                                              ************************************
+                                                                   Sitecore Install Framework
+                                                                         Version - 1.2.1
+                                                              ************************************
+
+
+WorkingDirectory  : C:\xp
+LogPath           : C:\xp\xconnect-xp1-ReferenceData.180629.log
+WhatIf            : False
+Verbose           : SilentlyContinue
+Configuration     : C:\xp\config\xconnect-xp1-ReferenceData.json
+Debug             : SilentlyContinue
+WarningAction     : Continue
+ErrorAction       : Stop
+InformationAction : Continue
+
+
+
+
+[----------------------------------------------------------------- CreatePaths : EnsurePath ------------------------------------------------------------------]
+[CreatePaths]:[Create] C:\inetpub\wwwroot\xp901.sc
+
+[--------------------------------------------------------------- CreateAppPool : AppPool ---------------------------------------------------------------------]
+[CreateAppPool]:[Exists] xp901.sc
+[CreateAppPool]:[Setting] processModel.identityType => ApplicationPoolIdentity
+
+[---------------------------------------------- SetAppPoolCertStorePermissions : FilePermissions -------------------------------------------------------------]
+[SetAppPoolCertStorePermissions]:[Allow] IIS AppPool\xp901.sc
+[SetAppPoolCertStorePermissions]:[Path] C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\91b96ebb38a6a60bb219402c518edcbc_ffb0b732-144c-463c-be18-2420269ed3d0
+[SetAppPoolCertStorePermissions]:[Rights] Read
+[SetAppPoolCertStorePermissions]:[Inherit] None
+[SetAppPoolCertStorePermissions]:[Propagate] None
+
+[--------------------------------------------------------------- CreateWebsite : Website ---------------------------------------------------------------------]
+[CreateWebsite]:[Exists] xp901.sc
+[CreateWebsite]:[Setting] applicationPool => xp901.sc
+[CreateWebsite]:[Setting] physicalPath => C:\inetpub\wwwroot\xp901.sc
+
+[----------------------------------------------------------------- StopWebsite : ManageWebsite ---------------------------------------------------------------]
+[StopWebsite]:[Stop] xp901.sc
+WARNING: Website xp901.sc is already Stopped
+
+[----------------------------------------------------------------- StopAppPool : ManageAppPool ---------------------------------------------------------------]
+[StopAppPool]:[Stop] xp901.sc
+
+[-------------------------------------------------------- RemoveDefaultBinding : WebBinding ------------------------------------------------------------------]
+[RemoveDefaultBinding]:[Remove] 
+protocol bindingInformation sslFlags
+-------- ------------------ --------
+http     *:80:                     0
+
+[--------------------------------------- CreateBindingsWithThumprint [Skipped] : WebBinding ------------------------------------------------------------------]
+
+[--------------------------------------------- SetClientCertificatePermissions : WebsiteClientCert -----------------------------------------------------------]
+[SetClientCertificatePermissions]:[xp901.sc] [Setting] sslFlags => SslNegotiateCert
+
+[------------------------------------------------------------ CreateHostHeader : HostHeader ------------------------------------------------------------------]
+[CreateHostHeader]:[Backup] Created - C:\Windows\system32\drivers\etc\hosts.backup
+[CreateHostHeader]:[Exists] 127.0.0.1 => xp901.sc
+
+[-------------------------------------------------------------- SetPermissions : FilePermissions -------------------------------------------------------------]
+[SetPermissions]:[Allow] IIS AppPool\xp901.sc
+[SetPermissions]:[Path] C:\inetpub\wwwroot\xp901.sc
+[SetPermissions]:[Rights] FullControl
+[SetPermissions]:[Inherit] ContainerInherit ObjectInherit
+[SetPermissions]:[Propagate] None
+
+[------------------------------------------------------------------ InstallWDP : WebDeploy -------------------------------------------------------------------]
+[WebDeploy]:[Path] C:\Program Files\iis\Microsoft Web Deploy V3\msdeploy.exe
+Info: Adding MsDeploy.Site (MsDeploy.Site).
+Info: Adding database (user id=sa;data source=RAMONASENIE0E1F;initial catalog=xp901_ReferenceData)
+Info: Initializing deployment: Pending.
+Info: Analyzing deployment plan: Pending.
+Info: Updating database: Pending.
+Info: Creating deployment plan: Pending.
+Info: Verifying deployment plan: Pending.
+Info: Deploying package to database: Pending.
+Info: Creating deployment plan: Running.
+Info: Initializing deployment: Running.
+Info: Initializing deployment (Start)
+Info: Initializing deployment: Completed.
+Info: Initializing deployment (Complete)
+Info: Creating deployment plan: Completed.
+Info: Verifying deployment plan: Running.
+Info: Analyzing deployment plan: Running.
+Info: Analyzing deployment plan (Start)
+Info: Analyzing deployment plan: Completed.
+Info: Analyzing deployment plan (Complete)
+Info: Verifying deployment plan: Completed.
+Info: Deploying package to database: Running.
+Info: Updating database: Running.
+Info: Updating database (Start)
+Info: Creating xp901_ReferenceData...
+Info: Creating [xdb_refdata]...
+Info: Creating [xdb_refdata].[DefinitionBatch]...
+Info: Creating [xdb_refdata].[DefinitionCriteria]...
+Info: Creating [xdb_refdata].[DefinitionCultureBatch]...
+Info: Creating [xdb_refdata].[DefinitionCultureResults]...
+Info: Creating [xdb_refdata].[DefinitionKeys]...
+Info: Creating [xdb_refdata].[DefinitionResults]...
+Info: Creating [xdb_refdata].[MonikerDefinitions]...
+Info: Creating [xdb_refdata].[DefinitionCultures]...
+Info: Creating [xdb_refdata].[DefinitionMonikers]...
+Info: Creating [xdb_refdata].[DefinitionMonikers].[IX_DefinitionMonikers_MonikerHash_ID]...
+Info: Creating [xdb_refdata].[Definitions]...
+Info: Creating [xdb_refdata].[Definitions].[IX_Definitions_TypeID_IsActive]...
+Info: Creating [xdb_refdata].[DefinitionTypes]...
+Info: Creating [xdb_refdata].[DefinitionTypes].[IX_DefinitionTypes_Name]...
+Info: Creating unnamed constraint on [xdb_refdata].[Definitions]...
+Info: Creating [xdb_refdata].[DF_Definitions_IsActive]...
+Info: Creating [xdb_refdata].[DF_Definitions_LastModified]...
+Info: Creating [xdb_refdata].[FK_DefinitionCultures_Definitions]...
+Info: Creating [xdb_refdata].[FK_Definitions_DefinitionMonikers]...
+Info: Creating [xdb_refdata].[FK_Definitions_DefinitionTypes]...
+Info: Creating [xdb_refdata].[GetDefinitionMoniker]...
+Info: Creating [xdb_refdata].[GetDefinitionMonikerHash]...
+Info: Creating [xdb_refdata].[GetDefinitionID]...
+Info: Creating [xdb_refdata].[DeleteDefinitions]...
+Info: Creating [xdb_refdata].[DeleteDefinitionType]...
+Info: Creating [xdb_refdata].[EnsureDefinitionType]...
+Info: Creating [xdb_refdata].[GetByDefinitionTypes]...
+Info: Creating [xdb_refdata].[GetDefinitions]...
+Info: Creating [xdb_refdata].[GetDefinitionType]...
+Info: Creating [xdb_refdata].[GrantLeastPrivilege]...
+Info: Creating [xdb_refdata].[SaveDefinitionCultures]...
+Info: Creating [xdb_refdata].[SaveDefinitions]...
+Info: The transacted portion of the database update succeeded.
+Info: Update complete.
+Info: Importing data: Pending.
+Info: Importing data
+Info: Importing data: Running.
+Info: Processing Table '[xdb_refdata].[DefinitionMonikers]'.: Pending.
+Info: Processing Table '[xdb_refdata].[Definitions]'.: Pending.
+Info: Processing Table '[xdb_refdata].[DefinitionTypes]'.: Pending.
+Info: Processing Import.: Running.
+Info: Disabling indexes.: Pending.
+Info: Disabling indexes.: Running.
+Info: Disabling indexes. (Start)
+Info: Disabling index 'IX_DefinitionMonikers_MonikerHash_ID'.: Pending.
+Info: Disabling index 'IX_DefinitionMonikers_MonikerHash_ID'.: Running.
+Info: Disabling index 'IX_DefinitionMonikers_MonikerHash_ID'. (Start)
+Info: Disabling index 'IX_DefinitionMonikers_MonikerHash_ID'.: Completed.
+Info: Disabling index 'IX_DefinitionMonikers_MonikerHash_ID'. (Complete)
+Info: Disabling index 'IX_Definitions_TypeID_IsActive'.: Pending.
+Info: Disabling index 'IX_Definitions_TypeID_IsActive'.: Running.
+Info: Disabling index 'IX_Definitions_TypeID_IsActive'. (Start)
+Info: Disabling index 'IX_Definitions_TypeID_IsActive'.: Completed.
+Info: Disabling index 'IX_Definitions_TypeID_IsActive'. (Complete)
+Info: Disabling index 'IX_DefinitionTypes_Name'.: Pending.
+Info: Disabling index 'IX_DefinitionTypes_Name'.: Running.
+Info: Disabling index 'IX_DefinitionTypes_Name'. (Start)
+Info: Disabling index 'IX_DefinitionTypes_Name'.: Completed.
+Info: Disabling index 'IX_DefinitionTypes_Name'. (Complete)
+Info: Disabling index 'Unique_Name'.: Pending.
+Info: Disabling index 'Unique_Name'.: Running.
+Info: Disabling index 'Unique_Name'. (Start)
+Info: Disabling index 'Unique_Name'.: Completed.
+Info: Disabling index 'Unique_Name'. (Complete)
+Info: Disabling indexes.: Completed.
+Info: Disabling indexes. (Complete)
+Info: Processing Import. 0.000 % done.
+Info: Processing Table '[xdb_refdata].[DefinitionMonikers]'.: Running.
+Info: Processing Import. 6.095 % done.
+Info: Processing Import. 19.301 % done.
+Info: Processing Import. 23.365 % done.
+Info: Processing Table '[xdb_refdata].[DefinitionMonikers]'. 18.750 % done.
+Info: Processing Table '[xdb_refdata].[DefinitionMonikers]'. 71.875 % done.
+Info: Processing Table '[xdb_refdata].[DefinitionMonikers]'. 87.500 % done.
+Info: Processing Import. 28.444 % done.
+Info: Processing Table '[xdb_refdata].[DefinitionMonikers]'. 100.000 % done.
+Info: Processing Import. 32.507 % done.
+Info: Processing Table '[xdb_refdata].[Definitions]'.: Running.
+Info: Processing Table '[xdb_refdata].[DefinitionMonikers]'.: Completed.
+Info: Processing Table '[xdb_refdata].[Definitions]'. 46.118 % done.
+Info: Processing Import. 63.069 % done.
+Info: Processing Table '[xdb_refdata].[Definitions]'. 100.000 % done.
+Info: Processing Table '[xdb_refdata].[Definitions]'.: Completed.
+Info: Processing Import. 98.775 % done.
+Info: Processing Table '[xdb_refdata].[DefinitionTypes]'.: Running.
+Info: Processing Table '[xdb_refdata].[DefinitionTypes]'. 25.633 % done.
+Info: Processing Import. 99.089 % done.
+Info: Processing Import. 99.434 % done.
+Info: Processing Table '[xdb_refdata].[DefinitionTypes]'. 53.797 % done.
+Info: Processing Table '[xdb_refdata].[DefinitionTypes]'. 72.468 % done.
+Info: Processing Import. 99.663 % done.
+Info: Processing Import. 100.000 % done.
+Info: Processing Table '[xdb_refdata].[DefinitionTypes]'. 100.000 % done.
+Info: Processing Table '[xdb_refdata].[DefinitionTypes]'.: Completed.
+Info: Enabling indexes.: Pending.
+Info: Enabling indexes.: Running.
+Info: Enabling indexes. (Start)
+Info: Enabling index 'IX_DefinitionMonikers_MonikerHash_ID'.: Pending.
+Info: Enabling index 'IX_DefinitionMonikers_MonikerHash_ID'.: Running.
+Info: Enabling index 'IX_DefinitionMonikers_MonikerHash_ID'. (Start)
+Info: Enabling index 'IX_DefinitionMonikers_MonikerHash_ID'.: Completed.
+Info: Enabling index 'IX_DefinitionMonikers_MonikerHash_ID'. (Complete)
+Info: Enabling index 'IX_Definitions_TypeID_IsActive'.: Pending.
+Info: Enabling index 'IX_Definitions_TypeID_IsActive'.: Running.
+Info: Enabling index 'IX_Definitions_TypeID_IsActive'. (Start)
+Info: Enabling index 'IX_Definitions_TypeID_IsActive'.: Completed.
+Info: Enabling index 'IX_Definitions_TypeID_IsActive'. (Complete)
+Info: Enabling index 'IX_DefinitionTypes_Name'.: Pending.
+Info: Enabling index 'IX_DefinitionTypes_Name'.: Running.
+Info: Enabling index 'IX_DefinitionTypes_Name'. (Start)
+Info: Enabling index 'IX_DefinitionTypes_Name'.: Completed.
+Info: Enabling index 'IX_DefinitionTypes_Name'. (Complete)
+Info: Enabling index 'Unique_Name'.: Pending.
+Info: Enabling index 'Unique_Name'.: Running.
+Info: Enabling index 'Unique_Name'. (Start)
+Info: Enabling index 'Unique_Name'.: Completed.
+Info: Enabling index 'Unique_Name'. (Complete)
+Info: Enabling indexes.: Completed.
+Info: Enabling indexes. (Complete)
+Info: Processing Import.: Completed.
+Info: Importing data: Completed.
+Info: Importing data
+Info: Checking constraint: FK_Definitions_DefinitionMonikers [xdb_refdata].[Definitions]
+Info: Checking constraint: FK_Definitions_DefinitionMonikers [xdb_refdata].[Definitions]
+Info: Checking constraint: FK_Definitions_DefinitionTypes [xdb_refdata].[Definitions]
+Info: Checking constraint: FK_Definitions_DefinitionTypes [xdb_refdata].[Definitions]
+Info: Updating database: Completed.
+Info: Updating database (Complete)
+Info: Deploying package to database: Completed.
+Info: Adding database (user id=sa;data source=RAMONASENIE0E1F;initial catalog=xp901_ReferenceData)
+Info: Adding database (MsDeploy.Site/dbFullSql[@path='user id=sa;data source=RAMONASENIE0E1F;initial catalog=xp901_ReferenceData']/sqlScript)
+Info: Opening SQL Connection with connection string 'data source=RAMONASENIE0E1F;initial catalog=xp901_ReferenceData;user id=sa;pooling=False'. The 'transacted' setting for this connection is 'False'.
+Info: Updating file (xp901.sc\App_Config\AppSettings.config).
+Info: Updating file (xp901.sc\App_Config\ConnectionStrings.config).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.EXM.Collection.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.Collection.ContentTesting.Model.Plugins.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.Collection.IndexReaderDisabled.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.Collection.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.Collection.Model.Plugins.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.Collection.Web.Controllers.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.Collection.Web.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.CollectionService.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.XConnect.Service.Plugins.Processing.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.Xdb.Collection.Data.Sql.KeyStoreProviders.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.Xdb.Collection.Data.Sql.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.Xdb.Collection.RepositorySettings.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Collection\sc.Xdb.Processing.Queue.SqlServer.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CollectionSearch\sc.XConnect.CollectionSearch.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CollectionSearch\sc.Xdb.Collection.IndexReader.AzureSearch.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CollectionSearch\sc.Xdb.Collection.IndexReader.SOLR.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CollectionSearch\sc.Xdb.Collection.WebClient.SOLR.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CoreServices\sc.PerformanceCounters.AppInsights.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CoreServices\sc.PerformanceCounters.DisableCounters.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CoreServices\sc.PerformanceCounters.WindowsSystem.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CoreServices\sc.Serilog.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CoreServices\sc.XConnect.Security.EnforceSSL.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CoreServices\sc.XConnect.Security.EnforceSSLWithCertificateValidation.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\CoreServices\sc.Xdb.Sql.Common.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.EXM.ActivityTypes.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.ActivityResultHandlers.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.ActivityServices.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.ActivityTypes.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.ConditionEvaluationService.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.Conditions.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.ConditionServices.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.ContactLoader.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.Locators.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.PlanProcessing.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.PoolFilter.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.Processors.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.ServiceDecorators.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.MarketingAutomation.Workers.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.Engine.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.Operations.Web.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.Operations.Web.xml).
+Info: Deleting file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.Reporting.Web.Initialize.xml).
+Info: Adding file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.Reporting.Web.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.Reporting.Web.xml).
+Info: Deleting file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.SqlServer.Initialize.xml).
+Info: Adding file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.SqlServer.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.MarketingAutomation.SqlServer.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.Service.Plugins.MarketingAutomation.Operations.Web.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.Service.Plugins.MarketingAutomation.Reporting.Web.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingAutomation\sc.XConnect.Service.Plugins.MarketingAutomation.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingOperations\sc.Marketing.Operations.EmptyDefinitionFieldLabelResolver.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingOperations\sc.Marketing.Operations.Xdb.ReferenceData.XConnect.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingOperations\sc.Marketing.Taxonomy.XConnect.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingOperations\sc.Marketing.Taxonomy.Xdb.ReferenceData.XConnect.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\MarketingOperations\sc.Marketing.XConnect.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Core.Converters.xml).
+Info: Adding file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Core.Initialize.xml).
+Info: Deleting file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Core.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Core.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.Cache.Diagnostics.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.Cache.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.Diagnostics.xml).
+Info: Adding file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.Initialize.xml).
+Info: Deleting file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.Repository.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.Transport.Diagnostics.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.Transport.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Service.xml).
+Info: Adding file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.SqlServer.Initialize.xml).
+Info: Deleting file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.SqlServer.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.SqlServer.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Web.Controllers.xml).
+Info: Adding file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Web.Initialize.xml).
+Info: Deleting file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Web.Initialize.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\ReferenceData\sc.XConnect.ReferenceData.Web.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\SearchIndexer\sc.Xdb.Collection.IndexerSettings.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\SearchIndexer\sc.Xdb.Collection.IndexWriter.AzureSearch.xml.disabled).
+Info: Updating file (xp901.sc\App_data\config\sitecore\SearchIndexer\sc.Xdb.Collection.IndexWriter.SOLR.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Segmentation\sc.EXM.Segmentation.Predicates.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Segmentation\sc.XConnect.Segmentation.Predicates.Model.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Segmentation\sc.XConnect.Segmentation.Predicates.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\Segmentation\sc.XConnect.Segmentation.xml).
+Info: Updating file (xp901.sc\App_data\config\sitecore\XConnect\sc.XConnect.Client.xml.disabled).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Newtonsoft.Json.dll).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Newtonsoft.Json.xml).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.XConnect.Diagnostics.dll).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.XConnect.Diagnostics.InstallCounters.exe).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.XConnect.Diagnostics.InstallCounters.exe.config).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.XConnect.Diagnostics.PerformanceCounters.dll).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.XConnect.Service.Counters.json).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.XConnect.Web.Counters.json).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.Xdb.Collection.SqlServer.Counters.json).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.Xdb.MarketingAutomation.Counters.json).
+Info: Updating file (xp901.sc\App_data\Diagnostics\Sitecore.Xdb.ReferenceData.Counters.json).
+Info: Updating file (xp901.sc\App_data\jobs\_._).
+Info: Deleting file (xp901.sc\App_data\license.xml).
+Info: Updating file (xp901.sc\App_data\Logs\_._).
+Info: Updating file (xp901.sc\App_data\Models\Sitecore.EmailCampaign.XConnectModel, 1.0.json).
+Info: Updating file (xp901.sc\App_data\Models\Sitecore.XConnect.Collection.Model, 9.0.json).
+Info: Updating file (xp901.sc\App_data\Models\Sitecore.XConnect.ContentTesting.Model, 1.1.json).
+Info: Updating file (xp901.sc\bin\Microsoft.ApplicationInsights.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.ApplicationInsights.XML).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Hosting.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Hosting.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Http.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Http.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Http.Features.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.AspNetCore.Http.Features.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Azure.KeyVault.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Azure.KeyVault.WebKey.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Azure.SqlDatabase.ElasticScale.Client.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Data.Tools.Schema.Sql.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Data.Tools.Utilities.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.DotNet.InternalAbstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.CommandLineUtils.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.CommandLineUtils.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Binder.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Binder.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.CommandLine.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.CommandLine.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.EnvironmentVariables.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.EnvironmentVariables.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.FileExtensions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.FileExtensions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Ini.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Ini.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Json.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Json.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Xml.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Configuration.Xml.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.DependencyInjection.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.DependencyInjection.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.DependencyInjection.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.DependencyInjection.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.DependencyModel.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.FileProviders.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.FileProviders.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.FileProviders.Physical.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.FileProviders.Physical.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.FileSystemGlobbing.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.FileSystemGlobbing.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Logging.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Logging.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Logging.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Logging.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Options.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Options.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.PlatformAbstractions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.PlatformAbstractions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Primitives.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Extensions.Primitives.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.XML).
+Info: Updating file (xp901.sc\bin\Microsoft.IdentityModel.Clients.ActiveDirectory.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.OData.Core.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.OData.Core.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.OData.Edm.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.OData.Edm.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.Data.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Practices.ServiceLocation.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Practices.ServiceLocation.XML).
+Info: Updating file (xp901.sc\bin\Microsoft.Rest.ClientRuntime.Azure.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Rest.ClientRuntime.Azure.runtimeconfig.json).
+Info: Updating file (xp901.sc\bin\Microsoft.Rest.ClientRuntime.Azure.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Rest.ClientRuntime.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Rest.ClientRuntime.runtimeconfig.json).
+Info: Updating file (xp901.sc\bin\Microsoft.Rest.ClientRuntime.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.ServiceBus.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.ServiceBus.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.Spatial.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.Spatial.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.SqlServer.Dac.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.SqlServer.Dac.Extensions.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.SqlServer.Dac.Extensions.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.SqlServer.Dac.xml).
+Info: Updating file (xp901.sc\bin\Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.SqlServer.TransactSql.ScriptDom.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.SqlServer.Types.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.WindowsAzure.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Microsoft.WindowsAzure.Configuration.xml).
+Info: Updating file (xp901.sc\bin\Newtonsoft.Json.dll).
+Info: Updating file (xp901.sc\bin\Newtonsoft.Json.xml).
+Info: Updating file (xp901.sc\bin\Rebus.AzureServiceBus.dll).
+Info: Updating file (xp901.sc\bin\Rebus.AzureServiceBus.XML).
+Info: Updating file (xp901.sc\bin\Rebus.dll).
+Info: Updating file (xp901.sc\bin\Rebus.SqlServer.dll).
+Info: Updating file (xp901.sc\bin\Rebus.SqlServer.XML).
+Info: Updating file (xp901.sc\bin\Rebus.XML).
+Info: Updating file (xp901.sc\bin\Remotion.Linq.dll).
+Info: Updating file (xp901.sc\bin\Remotion.Linq.XML).
+Info: Updating file (xp901.sc\bin\Serilog.dll).
+Info: Updating file (xp901.sc\bin\Serilog.Extensions.Logging.dll).
+Info: Updating file (xp901.sc\bin\Serilog.Extensions.Logging.xml).
+Info: Updating file (xp901.sc\bin\Serilog.Settings.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Serilog.Settings.Configuration.xml).
+Info: Updating file (xp901.sc\bin\Serilog.Sinks.ApplicationInsights.dll).
+Info: Updating file (xp901.sc\bin\Serilog.Sinks.File.dll).
+Info: Updating file (xp901.sc\bin\Serilog.Sinks.File.xml).
+Info: Updating file (xp901.sc\bin\Serilog.Sinks.RollingFile.dll).
+Info: Updating file (xp901.sc\bin\Serilog.Sinks.RollingFile.xml).
+Info: Updating file (xp901.sc\bin\Serilog.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.ContentTesting.Model.xConnect.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.EmailCampaign.Activities.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.EmailCampaign.Model.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.EmailCampaign.XConnect.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.Extensions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.Extensions.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.WildcardMatch.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.WildcardMatch.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Common.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Conditions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Conditions.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.Common.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.Common.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.Extensions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.Extensions.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Configuration.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Common.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Common.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Configuration.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.Azure.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.Azure.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.Configuration.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.SqlServer.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.SqlServer.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Messaging.Rebus.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Abstractions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Abstractions.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Api.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Api.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Core.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Core.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Model.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Model.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Registry.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Registry.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Serialization.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Framework.Rules.Serialization.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.Automation.Activity.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.Automation.Models.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.Core.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.Operations.Xdb.ReferenceData.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.Operations.Xdb.ReferenceData.Model.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.Operations.Xdb.ReferenceData.Service.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Marketing.Taxonomy.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Nexus.Licensing.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Client.Configuration.XConnect.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Client.Configuration.XConnect.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Client.Configuration.XConnect.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Client.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Client.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Collection.Model.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Collection.Model.Plugins.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Collection.Model.Plugins.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Collection.Model.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.DependencyInjection.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.DependencyInjection.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.DependencyInjection.Web.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.DependencyInjection.Web.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Diagnostics.ApplicationInsights.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Diagnostics.ApplicationInsights.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Diagnostics.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Diagnostics.PerformanceCounters.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Diagnostics.PerformanceCounters.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Logging.Serilog.AppInsights.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Logging.Serilog.AppInsights.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Logging.Serilog.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Logging.Serilog.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Messaging.Azure.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Messaging.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Messaging.SqlServer.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Search.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Security.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Security.Web.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Security.Web.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Segmentation.Conditions.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Segmentation.Configuration.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Segmentation.Engine.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Segmentation.ExpressionBuilder.Model.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Segmentation.Predicates.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Segmentation.Predicates.Model.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.Plugins.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.Plugins.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.Plugins.MarketingAutomation.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.Plugins.MarketingAutomation.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.Plugins.Processing.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.Plugins.Processing.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Service.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.Web.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.XConnect.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.Data.SqlServer.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.Search.Azure.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.Search.Azure.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.Search.Azure.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.Search.Solr.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.Search.Solr.dll.config).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.Search.Solr.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Collection.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Common.Web.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Common.Web.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.Core.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.Core.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.SqlServer.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.SqlServer.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.Web.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.Web.XConnect.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.Web.XConnect.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.Web.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.MarketingAutomation.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Processing.Queue.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Processing.Queue.SqlServer.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Processing.Queue.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Core.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Core.xml).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Service.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Service.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.SqlServer.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.SqlServer.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Web.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Web.XConnect.dll).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Web.XConnect.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.ReferenceData.Web.XML).
+Info: Updating file (xp901.sc\bin\Sitecore.Xdb.Sql.Common.dll).
+Info: Updating file (xp901.sc\bin\SolrNet.dll).
+Info: Updating file (xp901.sc\bin\SolrNet.xml).
+Info: Updating file (xp901.sc\bin\System.Collections.NonGeneric.dll).
+Info: Updating file (xp901.sc\bin\System.ComponentModel.Primitives.dll).
+Info: Updating file (xp901.sc\bin\System.ComponentModel.TypeConverter.dll).
+Info: Updating file (xp901.sc\bin\System.Interactive.Async.dll).
+Info: Updating file (xp901.sc\bin\System.Interactive.Async.Providers.dll).
+Info: Updating file (xp901.sc\bin\System.Interactive.Async.Providers.xml).
+Info: Updating file (xp901.sc\bin\System.Interactive.Async.xml).
+Info: Updating file (xp901.sc\bin\System.IO.dll).
+Info: Updating file (xp901.sc\bin\System.Net.Http.Formatting.dll).
+Info: Updating file (xp901.sc\bin\System.Net.Http.Formatting.xml).
+Info: Updating file (xp901.sc\bin\System.Reflection.dll).
+Info: Updating file (xp901.sc\bin\System.Runtime.dll).
+Info: Updating file (xp901.sc\bin\System.Runtime.Extensions.dll).
+Info: Updating file (xp901.sc\bin\System.Runtime.InteropServices.dll).
+Info: Updating file (xp901.sc\bin\System.Text.Encodings.Web.dll).
+Info: Updating file (xp901.sc\bin\System.Text.Encodings.Web.xml).
+Info: Updating file (xp901.sc\bin\System.Web.Http.dll).
+Info: Updating file (xp901.sc\bin\System.Web.Http.WebHost.dll).
+Info: Updating file (xp901.sc\bin\System.Web.Http.WebHost.xml).
+Info: Updating file (xp901.sc\bin\System.Web.Http.xml).
+Info: Updating file (xp901.sc\bin\System.Web.OData.dll).
+Info: Updating file (xp901.sc\bin\System.Web.OData.xml).
+Info: Updating file (xp901.sc\Default.aspx).
+Info: Updating file (xp901.sc\Global.asax).
+Info: Updating file (xp901.sc\Messages.resx).
+Info: Updating file (xp901.sc\Web.config).
+Info: Adding ACLs for path (xp901.sc\App_Data\logs)
+Total changes: 388 (10 added, 7 deleted, 371 updated, 0 parameters changed, 52095041 bytes copied)
+
+[------------------------------------------------------------------ SetLicense : Copy ------------------------------------------------------------------------]
+[SetLicense]:[Copying] C:\xp\license.xml => C:\inetpub\wwwroot\xp901.sc\App_Data
+
+[-------------------------------------- CreateBindingsWithDevelopmentThumprint : AddWebFeatureSSL ------------------------------------------------------------]
+
+[---------------------------------------------------------------- StartAppPool : ManageAppPool ---------------------------------------------------------------]
+[StartAppPool]:[Start] xp901.sc
+
+[---------------------------------------------------------------- StartWebsite : ManageWebsite ---------------------------------------------------------------]
+[StartWebsite]:[Start] xp901.sc
+[TIME] 00:00:29
+**********************
+Windows PowerShell transcript end
+End time: 20180629175358
+**********************
