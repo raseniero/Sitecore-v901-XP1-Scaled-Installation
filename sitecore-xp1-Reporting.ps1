@@ -49,7 +49,7 @@ $ContentManagementParams = @{
     ReportingServiceApiKey = $ReportingServiceApiKey
 } 
 Write-Host @ContentManagementParams
-Install-SitecoreConfiguration @ContentManagementParams -Verbose
+Install-SitecoreConfiguration @ContentManagementParams
 
 <#
 MIT License
