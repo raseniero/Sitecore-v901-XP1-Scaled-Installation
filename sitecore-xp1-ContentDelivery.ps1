@@ -43,7 +43,7 @@ $EXMAuthenticationKey = "0x00000000000000000000000000000000000000000000000000000
 $ContentDeliveryParams = @{     
     Path = $Path
     Package = $Package     
-    LicenseFile = "$PSScriptRoot\license.xml"     
+    LicenseFile = $LicenseFile     
     SqlDbPrefix = $Prefix  
     SolrCorePrefix = $SolrCorePrefix
     XConnectCert = $XConnectCert
@@ -68,7 +68,7 @@ $ContentDeliveryParams = @{
     EXMAuthenticationKey = $EXMAuthenticationKey
 } 
 Write-Host @ContentDeliveryParams
-Install-SitecoreConfiguration @ContentDeliveryParams -Verbose
+Install-SitecoreConfiguration @ContentDeliveryParams
 
 <#
 MIT License
