@@ -8,7 +8,7 @@ This is a guide or a reference for installing Sitecore XP1 v9.0 in a fully scale
 
 These instructions will serve as a guide or a reference for deploying Sitecore XP1 v9.0 in a fully scaled on-premise environment. 
 
-In the following scenario below, every core roles and XP service roles is performed by a dedicated server. This is a pre-built topology and is also known as XP1 Scaled. However, roles can be combine into a single instance, e.g. all xConnect and xDB roles (i.e. Collection, Collection Service, Marketing Automation, Marketing Automation Reporting, and ReferenceData) can be installed in a single instance. 
+In the following scenario below, every core roles and XP service roles is performed by a dedicated server. This is a pre-built topology and is also known as XP1 Scaled. However, roles can be combine into a single instance, e.g. all xConnect and xDB roles (i.e. Collection, Collection Search, Marketing Automation, Marketing Automation Reporting, and ReferenceData) can be installed in a single instance. 
 
 We will be referencing *the diagram* below in our instructions to come.
 
