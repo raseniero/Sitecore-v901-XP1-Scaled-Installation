@@ -56,7 +56,14 @@ PS C:\>Install-WindowsFeatures Web-Asp-Net45
 * UrlRewrite2.exe (URLRewrite2) using Web Platform Installer
 * Microsoft SQL Server Data-Tier Application Framework (DacFx) version 2016 (DacFramework-x64.msi)
 * SQLSysClrTypes.msi 
-* SQLCMD
+* SQLCMD using Powershell below
+```
+PS C:\> Install-Module -name SqlServer
+```
+or
+```
+PS C:\> Install-Module -name Sqlps
+```
 
 ## Installation 
 
