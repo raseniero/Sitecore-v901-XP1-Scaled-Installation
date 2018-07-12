@@ -142,6 +142,10 @@ $SolrService = "solr662"
 PS C:\> .\xconnect-SolrCores.ps1 <<Press Enter>>
 ```
 >Note: If the cores exist, they will be overwritten.
+  
+#### Expected Result
+
+You should be able to browse the Solr website using the $SolrUrl i.e. opening the https://localhost:8983/solr in your browser.
 
 ### xConnect Instance Installation
 
@@ -167,7 +171,7 @@ The $Prefix, $SqlAdminUser, $SqlAdminPassword and $SqlServer needs to be changes
 $SqlDbPrefix = $Prefix
 $SqlAdminUser = "sa" 
 $SqlAdminPassword="Test12345" 
-$SqlCollectionUser = "collectionuser"
+$SqlCollectionUser = "collectionuser" 
 $SqlCollectionPassword = "Test12345"
 $SqlProcessingPoolsUser = "poolsuser"
 $SqlProcessingPoolsPassword = "Test12345"
@@ -232,7 +236,11 @@ $XConnectLogLevel = "Information" #Use Debug for Development
 PS C:\xp> .\xconnect-xp1-CollectionSearch.ps1 <<Press Enter>>
 ```
 >Note: The script will take about (+/-) 11 minutes to complete execution, 
-see the [xconnect-xp1-collectionsearch.log](xconnect-xp1-collectionsearch.log) file.
+see the [xconnect-xp1-collectionsearch.log](xconnect-xp1-collectionsearch.log) file
+
+#### Expected Result
+
+You should be able to see a new websites created on IIS with the name $SiteName
 
 ### xDB Services Instance Installation
 
