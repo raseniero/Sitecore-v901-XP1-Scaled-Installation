@@ -79,9 +79,9 @@ This applies to the follwing instances or roles *XConnect*, *xDB Services*, *Con
 > Note: All  WDP Packages (*.zip files) should be directly under the *Installation Directory*.
 3. Save you Sitecore license file directly under the *Installation Directory* as *license.xml*.
 4. Set NETWORK SERVICE with Modify permission to c:\inetpub\wwwroot folder
-5. Set IIS_IUSRS with Modify permission to %WINDIR%\Temp\ folder
-6. Set IIS_IUSRS with Modify permission to %WINDIR%\Globalization\ folder
-7. Set IIS_IUSRS with Modify permission to %PROGRAMDATA%\Microsoft\Crypto\ folder 
+5. Set IIS_IUSRS or IUSR or NETWORK SERVICE with Modify permission to %WINDIR%\Temp\ folder
+6. Set IIS_IUSRS or IUSR or NETWORK SERVICE with Modify permission to %WINDIR%\Globalization\ folder
+7. Set IIS_IUSRS or IUSR or NETWORK SERVICE with Modify permission to %PROGRAMDATA%\Microsoft\Crypto\ folder 
 8. Clear the Web Platform Installer download cache
 9. Enable *contained database authentication* by running a sql query below
 ```
